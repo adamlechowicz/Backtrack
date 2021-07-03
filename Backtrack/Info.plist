@@ -3,7 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your personal iCloud account.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
+	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
