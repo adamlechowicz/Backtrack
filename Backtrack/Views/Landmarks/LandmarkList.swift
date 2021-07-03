@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LandmarkList: View {
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var locHelper: LocationHelper
     @State private var showFavoritesOnly = false
 
     var filteredLandmarks: [Landmark] {
@@ -16,6 +17,7 @@ struct LandmarkList: View {
             (!showFavoritesOnly || landmark.isFavorite)
         }
     }
+    
 
     var body: some View {
         NavigationView {

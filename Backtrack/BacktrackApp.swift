@@ -8,13 +8,13 @@ The top-level definition of the Landmarks app.
 import SwiftUI
 
 @main
-struct LandmarksApp: App {
+struct BacktrackApp: App {
+    @StateObject private var locHelper = LocationHelper()
     @StateObject private var modelData = ModelData()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(modelData)
+            AppView().environmentObject(locHelper).environmentObject(modelData)
         }
     }
 }

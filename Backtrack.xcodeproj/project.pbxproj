@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66A75F18268FE02300F5A2CC /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A75F17268FE02300F5A2CC /* LocationHelper.swift */; };
+		66A75F1C268FE28300F5A2CC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A75F1B268FE28300F5A2CC /* CloudKit.framework */; };
+		66A75F1E268FE3EF00F5A2CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A75F1D268FE3EF00F5A2CC /* MapKit.framework */; };
 		66E1BB5C2675CBA5008D88C8 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1BB5B2675CBA5008D88C8 /* AppView.swift */; };
-		C20D77EE24B665D7002E7AEA /* LandmarksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77ED24B665D7002E7AEA /* LandmarksApp.swift */; };
+		C20D77EE24B665D7002E7AEA /* BacktrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77ED24B665D7002E7AEA /* BacktrackApp.swift */; };
 		C20D77F024B665D7002E7AEA /* LandmarkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77EF24B665D7002E7AEA /* LandmarkDetail.swift */; };
 		C20D77F224B665D8002E7AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C20D77F124B665D8002E7AEA /* Assets.xcassets */; };
 		C20D77F524B665D8002E7AEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C20D77F424B665D8002E7AEA /* Preview Assets.xcassets */; };
@@ -24,11 +27,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66A75F17268FE02300F5A2CC /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		66A75F19268FE27C00F5A2CC /* Backtrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Backtrack.entitlements; sourceTree = "<group>"; };
+		66A75F1B268FE28300F5A2CC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		66A75F1D268FE3EF00F5A2CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		66E1BB5B2675CBA5008D88C8 /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		6AF17FBC250C47AD4B5BC2FB /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		8016A7122042026B58FF1299 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C20D77EA24B665D7002E7AEA /* Backtrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backtrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C20D77ED24B665D7002E7AEA /* LandmarksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksApp.swift; sourceTree = "<group>"; };
+		C20D77ED24B665D7002E7AEA /* BacktrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacktrackApp.swift; sourceTree = "<group>"; };
 		C20D77EF24B665D7002E7AEA /* LandmarkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetail.swift; sourceTree = "<group>"; };
 		C20D77F124B665D8002E7AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C20D77F424B665D8002E7AEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -50,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66A75F1E268FE3EF00F5A2CC /* MapKit.framework in Frameworks */,
+				66A75F1C268FE28300F5A2CC /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +73,15 @@
 			name = Configuration;
 			sourceTree = "<group>";
 		};
+		66A75F1A268FE28300F5A2CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66A75F1D268FE3EF00F5A2CC /* MapKit.framework */,
+				66A75F1B268FE28300F5A2CC /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C20D77E124B665D7002E7AEA = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +90,7 @@
 				C20D77EB24B665D7002E7AEA /* Products */,
 				00ABA66E85532B385D477CBF /* Configuration */,
 				E573155042573F7430EB4C1C /* LICENSE */,
+				66A75F1A268FE28300F5A2CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,7 +105,8 @@
 		C20D77EC24B665D7002E7AEA /* Backtrack */ = {
 			isa = PBXGroup;
 			children = (
-				C20D77ED24B665D7002E7AEA /* LandmarksApp.swift */,
+				66A75F19268FE27C00F5A2CC /* Backtrack.entitlements */,
+				C20D77ED24B665D7002E7AEA /* BacktrackApp.swift */,
 				C2FEB33624B7C9DA004FAB73 /* Views */,
 				C20D780824B685C4002E7AEA /* Model */,
 				C20D780924B685CB002E7AEA /* Resources */,
@@ -110,6 +130,7 @@
 			children = (
 				C20D780424B684EC002E7AEA /* ModelData.swift */,
 				C20D780224B684BD002E7AEA /* Landmark.swift */,
+				66A75F17268FE02300F5A2CC /* LocationHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,12 +253,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66A75F18268FE02300F5A2CC /* LocationHelper.swift in Sources */,
 				C20D780524B684EC002E7AEA /* ModelData.swift in Sources */,
 				C20D77F024B665D7002E7AEA /* LandmarkDetail.swift in Sources */,
 				C20D77FF24B67FB3002E7AEA /* MapView.swift in Sources */,
 				C20D780B24B68B4D002E7AEA /* LandmarkList.swift in Sources */,
 				66E1BB5C2675CBA5008D88C8 /* AppView.swift in Sources */,
-				C20D77EE24B665D7002E7AEA /* LandmarksApp.swift in Sources */,
+				C20D77EE24B665D7002E7AEA /* BacktrackApp.swift in Sources */,
 				C2C583BD24DB807000DD0019 /* ContentView.swift in Sources */,
 				C20D780124B6846F002E7AEA /* LandmarkRow.swift in Sources */,
 				C20D77FD24B668F4002E7AEA /* CircleImage.swift in Sources */,
@@ -373,6 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Backtrack/Backtrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Backtrack/Preview Content\"";
 				DEVELOPMENT_TEAM = FSMP3T4UP6;
@@ -397,6 +420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Backtrack/Backtrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Backtrack/Preview Content\"";
 				DEVELOPMENT_TEAM = FSMP3T4UP6;
