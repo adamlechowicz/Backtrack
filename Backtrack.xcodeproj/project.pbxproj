@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6625DE4326916A9F0036A025 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625DE4226916A9F0036A025 /* ConfigView.swift */; };
+		6625DE4526916D670036A025 /* ItemButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625DE4426916D670036A025 /* ItemButtonStyle.swift */; };
+		6692EC772692942700E6053B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6692EC762692942700E6053B /* Delegate.swift */; };
 		66A75F18268FE02300F5A2CC /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A75F17268FE02300F5A2CC /* LocationHelper.swift */; };
 		66A75F1C268FE28300F5A2CC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A75F1B268FE28300F5A2CC /* CloudKit.framework */; };
 		66A75F1E268FE3EF00F5A2CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A75F1D268FE3EF00F5A2CC /* MapKit.framework */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6625DE4226916A9F0036A025 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
+		6625DE4426916D670036A025 /* ItemButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemButtonStyle.swift; sourceTree = "<group>"; };
+		6692EC762692942700E6053B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		66A75F17268FE02300F5A2CC /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		66A75F19268FE27C00F5A2CC /* Backtrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Backtrack.entitlements; sourceTree = "<group>"; };
 		66A75F1B268FE28300F5A2CC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -113,6 +119,7 @@
 				C20D77F124B665D8002E7AEA /* Assets.xcassets */,
 				C20D77F624B665D8002E7AEA /* Info.plist */,
 				C20D77F324B665D8002E7AEA /* Preview Content */,
+				6625DE4426916D670036A025 /* ItemButtonStyle.swift */,
 			);
 			path = Backtrack;
 			sourceTree = "<group>";
@@ -131,6 +138,7 @@
 				C20D780424B684EC002E7AEA /* ModelData.swift */,
 				C20D780224B684BD002E7AEA /* Landmark.swift */,
 				66A75F17268FE02300F5A2CC /* LocationHelper.swift */,
+				6692EC762692942700E6053B /* Delegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				C20D780A24B68B4D002E7AEA /* LandmarkList.swift */,
+				6625DE4226916A9F0036A025 /* ConfigView.swift */,
 				C20D780024B6846F002E7AEA /* LandmarkRow.swift */,
 				C20D77EF24B665D7002E7AEA /* LandmarkDetail.swift */,
 			);
@@ -253,17 +262,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6625DE4526916D670036A025 /* ItemButtonStyle.swift in Sources */,
 				66A75F18268FE02300F5A2CC /* LocationHelper.swift in Sources */,
 				C20D780524B684EC002E7AEA /* ModelData.swift in Sources */,
 				C20D77F024B665D7002E7AEA /* LandmarkDetail.swift in Sources */,
 				C20D77FF24B67FB3002E7AEA /* MapView.swift in Sources */,
 				C20D780B24B68B4D002E7AEA /* LandmarkList.swift in Sources */,
+				6692EC772692942700E6053B /* Delegate.swift in Sources */,
 				66E1BB5C2675CBA5008D88C8 /* AppView.swift in Sources */,
 				C20D77EE24B665D7002E7AEA /* BacktrackApp.swift in Sources */,
 				C2C583BD24DB807000DD0019 /* ContentView.swift in Sources */,
 				C20D780124B6846F002E7AEA /* LandmarkRow.swift in Sources */,
 				C20D77FD24B668F4002E7AEA /* CircleImage.swift in Sources */,
 				C2C583C224DB80DA00DD0019 /* FavoriteButton.swift in Sources */,
+				6625DE4326916A9F0036A025 /* ConfigView.swift in Sources */,
 				C20D780324B684BD002E7AEA /* Landmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -379,7 +391,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -401,7 +413,7 @@
 				DEVELOPMENT_TEAM = FSMP3T4UP6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Backtrack/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,7 +438,7 @@
 				DEVELOPMENT_TEAM = FSMP3T4UP6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Backtrack/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

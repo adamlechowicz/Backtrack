@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -39,11 +33,19 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array>
 		<string>MKDirectionsModeCar</string>
 		<string>MKDirectionsModePedestrian</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -56,6 +58,8 @@
 		<string>location</string>
 		<string>processing</string>
 	</array>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 	<key>UILaunchScreen</key>
 	<dict/>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -65,8 +69,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

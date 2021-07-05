@@ -15,10 +15,10 @@ struct AppView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            LandmarkList()
+            ConfigView()
                 .tabItem {
                     Image(systemName: "book.fill")
-                    Text("Index")
+                    Text("Config")
                 }
                 .tag(1)
             LandmarkList()
@@ -30,6 +30,18 @@ struct AppView: View {
         }.onAppear(){
             if(self.locHelper.authorisationStatus != .authorizedAlways){
                 self.locHelper.requestAuth(always: true)
+            }
+            do{
+                let dir = try FileManager.default.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
+                let fh = dir.appendingPathComponent("test.txt")
+                NSLog(fh.absoluteString)
+                do {
+                    try "Hello World".write(to: fh, atomically: true, encoding: .utf8)
+                } catch {
+                    NSLog("Error")
+                }
+            } catch let error as NSError {
+                NSLog("Problem opening the appropriate file: \(error)")
             }
         }
         .accentColor(.green)
