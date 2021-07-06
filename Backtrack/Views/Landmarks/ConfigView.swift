@@ -26,7 +26,7 @@ struct ConfigView: View {
                 self.locHelper.toggle()
                     }){
                 HStack {
-                    Text("Start Backtracking").foregroundColor(self.locHelper.active ? .black : .white)
+                    Text(self.locHelper.active ? "Stop Backtracking" : "Start Backtracking").foregroundColor(self.locHelper.active ? .black : .white)
                 }
                     .padding(.horizontal, 40.0)
                     .padding(.vertical, 15.0)

@@ -8,9 +8,9 @@
 
 import Foundation
 import Combine
-import AVFoundation
 import CloudKit
 import MapKit
+import UIKit
 import CoreLocation
 
 class LocationHelper: NSObject, ObservableObject {
@@ -18,6 +18,7 @@ class LocationHelper: NSObject, ObservableObject {
     private var lastLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     @Published var authorisationStatus: CLAuthorizationStatus = .notDetermined
     @Published var active: Bool = false
+    @Published var currentDevice: String = "PlaceholderDevice"
     
     private var fh: URL? = nil
 
@@ -32,19 +33,20 @@ class LocationHelper: NSObject, ObservableObject {
             self.fh = dir.appendingPathComponent("backtrack.csv")
             
             if !FileManager.default.fileExists(atPath: self.fh!.path) {
-                let s = "DateTime,Latitude,Longitude\n"
+                let s = "DateTime,Latitude,Longitude,Device\n"
                 try s.write(to: self.fh!, atomically: true, encoding: .utf8)
             }
         } catch let error as NSError {
             NSLog("Problem opening the appropriate file: \(error)")
         }
+        self.currentDevice = UIDevice.current.name
     }
     
     public func start(){
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         if CLLocationManager.locationServicesEnabled(){
             locationManager.startUpdatingLocation()
-            locationManager.startMonitoringSignificantLocationChanges()
+            //locationManager.startMonitoringSignificantLocationChanges()
         }
         self.active = true
     }
@@ -52,7 +54,7 @@ class LocationHelper: NSObject, ObservableObject {
     public func stop(){
         if CLLocationManager.locationServicesEnabled(){
             self.locationManager.stopUpdatingLocation()
-            self.locationManager.stopMonitoringSignificantLocationChanges()
+            //self.locationManager.stopMonitoringSignificantLocationChanges()
         }
         self.active = false
     }
@@ -102,7 +104,7 @@ extension LocationHelper: CLLocationManagerDelegate {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let dateString = formatter.string(from: now)
         
-        let s = String(format: "%@,%f,%f\n", dateString, locValue.latitude, locValue.longitude)
+        let s = String(format: "%@,%f,%f,%@\n", dateString, locValue.latitude, locValue.longitude, self.currentDevice)
         
         if (self.fh != nil){
             if let fileHandle = FileHandle(forWritingAtPath: self.fh!.path) {

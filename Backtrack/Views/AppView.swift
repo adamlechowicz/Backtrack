@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct AppView: View {
-    @State private var selection = 2
+    @State private var selection = 1
     //@EnvironmentObject var model: Model
     @EnvironmentObject var locHelper: LocationHelper
     
@@ -44,7 +44,7 @@ struct AppView: View {
                 NSLog("Problem opening the appropriate file: \(error)")
             }
         }
-        .accentColor(.green)
+        .accentColor(self.locHelper.active ? Color(UIColor(named: "EmeraldGreen") ?? .green) : Color(UIColor(named: "OceanBlue") ?? .blue))
         
     }
 }
