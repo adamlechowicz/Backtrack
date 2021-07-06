@@ -94,7 +94,17 @@ extension LocationHelper: CLLocationManagerDelegate {
         let dateString = formatter.string(from: now)
         
         let s = String(format: "%@,%f,%f\n", dateString, locValue.longitude, locValue.latitude)
+        
         if (self.fh != nil){
+            if let fileHandle = FileHandle(forWritingAtPath: self.fh!.path) {
+                defer {
+                    fileHandle.closeFile()
+                }
+                fileHandle.seekToEndOfFile()
+                fileHandle.write(s.data(using: String.Encoding.utf8)!)
+            }
+        }
+        else {
             do {
                 try s.write(to: self.fh!, atomically: true, encoding: .utf8)
             } catch {
