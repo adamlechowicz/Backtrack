@@ -15,7 +15,7 @@ import CoreLocation
 
 class LocationHelper: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
-    private var curLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+    private var lastLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     @Published var authorisationStatus: CLAuthorizationStatus = .notDetermined
     @Published var active: Bool = false
     
@@ -30,6 +30,11 @@ class LocationHelper: NSObject, ObservableObject {
         do{
             let dir = try FileManager.default.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
             self.fh = dir.appendingPathComponent("backtrack.csv")
+            
+            if !FileManager.default.fileExists(atPath: self.fh!.path) {
+                let s = "DateTime,Latitude,Longitude\n"
+                try s.write(to: self.fh!, atomically: true, encoding: .utf8)
+            }
         } catch let error as NSError {
             NSLog("Problem opening the appropriate file: \(error)")
         }
@@ -87,13 +92,17 @@ extension LocationHelper: CLLocationManagerDelegate {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         NSLog("locations = \(locValue.latitude) \(locValue.longitude)")
         
+        if (locValue.latitude == lastLocation.latitude && locValue.longitude == lastLocation.latitude){
+            return
+        }
+        
         let now = Date()
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let dateString = formatter.string(from: now)
         
-        let s = String(format: "%@,%f,%f\n", dateString, locValue.longitude, locValue.latitude)
+        let s = String(format: "%@,%f,%f\n", dateString, locValue.latitude, locValue.longitude)
         
         if (self.fh != nil){
             if let fileHandle = FileHandle(forWritingAtPath: self.fh!.path) {
@@ -104,13 +113,7 @@ extension LocationHelper: CLLocationManagerDelegate {
                 fileHandle.write(s.data(using: String.Encoding.utf8)!)
             }
         }
-        else {
-            do {
-                try s.write(to: self.fh!, atomically: true, encoding: .utf8)
-            } catch {
-                NSLog("Error")
-            }
-        }
+        self.lastLocation = locValue
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
