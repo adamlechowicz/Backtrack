@@ -26,8 +26,8 @@ class LocationHelper: NSObject, ObservableObject {
         super.init()
         self.locationManager.delegate = self
         self.locationManager.allowsBackgroundLocationUpdates = true
-        self.locationManager.pausesLocationUpdatesAutomatically = true
-        self.locationManager.distanceFilter = 100
+        self.locationManager.pausesLocationUpdatesAutomatically = false
+        self.locationManager.distanceFilter = 200
         do{
             let dir = try FileManager.default.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
             self.fh = dir.appendingPathComponent("backtrack.csv")
@@ -43,10 +43,10 @@ class LocationHelper: NSObject, ObservableObject {
     }
     
     public func start(){
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         if CLLocationManager.locationServicesEnabled(){
             locationManager.startUpdatingLocation()
-            //locationManager.startMonitoringSignificantLocationChanges()
+            locationManager.startMonitoringSignificantLocationChanges()
         }
         self.active = true
     }
@@ -54,7 +54,7 @@ class LocationHelper: NSObject, ObservableObject {
     public func stop(){
         if CLLocationManager.locationServicesEnabled(){
             self.locationManager.stopUpdatingLocation()
-            //self.locationManager.stopMonitoringSignificantLocationChanges()
+            self.locationManager.stopMonitoringSignificantLocationChanges()
         }
         self.active = false
     }
@@ -62,8 +62,10 @@ class LocationHelper: NSObject, ObservableObject {
     public func toggle(){
         if self.active {
             self.stop()
+            setApplicationIconName("Blue")
         } else {
             self.start()
+            setApplicationIconName("Green")
         }
     }
     
@@ -120,5 +122,19 @@ extension LocationHelper: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog("ERROR - No Location Received")
+    }
+}
+
+func setApplicationIconName(_ iconName: String?) {
+    if UIApplication.shared.responds(to: #selector(getter: UIApplication.supportsAlternateIcons)) && UIApplication.shared.supportsAlternateIcons {
+        
+        typealias setAlternateIconName = @convention(c) (NSObject, Selector, NSString?, @escaping (NSError) -> ()) -> ()
+            
+        let selectorString = "_setAlternateIconName:completionHandler:"
+            
+        let selector = NSSelectorFromString(selectorString)
+        let imp = UIApplication.shared.method(for: selector)
+        let method = unsafeBitCast(imp, to: setAlternateIconName.self)
+        method(UIApplication.shared, selector, iconName as NSString?, { _ in })
     }
 }

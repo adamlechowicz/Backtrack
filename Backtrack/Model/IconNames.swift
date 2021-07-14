@@ -1,0 +1,44 @@
+//
+//  IconNames.swift
+//  Backtrack
+//
+//  Created by Adam Lechowicz on 7/13/21.
+//  Copyright © 2021 Apple. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class IconNames: ObservableObject {
+    var iconNames: [String?] = [nil]
+    //exact index we're at inside our icon names
+    @Published var currentIndex = 0
+    
+    init() {
+        getAlternateIconNames()
+        
+        if let currentIcon = UIApplication.shared.alternateIconName{
+            self.currentIndex = iconNames.firstIndex(of: currentIcon) ?? 0
+        }
+    }
+    
+    func getAlternateIconNames(){
+    //looking into our info.plist file to locate the specific Bundle with our icons
+            if let icons = Bundle.main.object(forInfoDictionaryKey: "CFBundleIcons") as? [String: Any],
+                let alternateIcons = icons["CFBundleAlternateIcons"] as? [String: Any]
+            {
+                     
+                 for (_, value) in alternateIcons{
+                    //Accessing the name of icon list inside the dictionary
+                     guard let iconList = value as? Dictionary<String,Any> else{return}
+                     //Accessing the name of icon files
+                     guard let iconFiles = iconList["CFBundleIconFiles"] as? [String]
+                         else{return}
+                         //Accessing the name of the icon
+                     guard let icon = iconFiles.first else{return}
+                     iconNames.append(icon)
+        
+                 }
+            }
+    }
+}

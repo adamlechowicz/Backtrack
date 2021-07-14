@@ -13,6 +13,13 @@
 		66A75F18268FE02300F5A2CC /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A75F17268FE02300F5A2CC /* LocationHelper.swift */; };
 		66A75F1C268FE28300F5A2CC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A75F1B268FE28300F5A2CC /* CloudKit.framework */; };
 		66A75F1E268FE3EF00F5A2CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A75F1D268FE3EF00F5A2CC /* MapKit.framework */; };
+		66B93218269E8F0B00BE1B82 /* Blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B93216269E8F0B00BE1B82 /* Blue@2x.png */; };
+		66B93219269E8F0B00BE1B82 /* Blue@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B93217269E8F0B00BE1B82 /* Blue@1x.png */; };
+		66B9321B269E8F1700BE1B82 /* Blue@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B9321A269E8F1700BE1B82 /* Blue@3x.png */; };
+		66B9321F269E8F4600BE1B82 /* Green@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B9321C269E8F4600BE1B82 /* Green@1x.png */; };
+		66B93220269E8F4600BE1B82 /* Green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B9321D269E8F4600BE1B82 /* Green@2x.png */; };
+		66B93221269E8F4600BE1B82 /* Green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B9321E269E8F4600BE1B82 /* Green@3x.png */; };
+		66B93223269E8FD000BE1B82 /* IconNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B93222269E8FD000BE1B82 /* IconNames.swift */; };
 		66E1BB5C2675CBA5008D88C8 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1BB5B2675CBA5008D88C8 /* AppView.swift */; };
 		C20D77EE24B665D7002E7AEA /* BacktrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77ED24B665D7002E7AEA /* BacktrackApp.swift */; };
 		C20D77F024B665D7002E7AEA /* LandmarkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77EF24B665D7002E7AEA /* LandmarkDetail.swift */; };
@@ -37,6 +44,13 @@
 		66A75F19268FE27C00F5A2CC /* Backtrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Backtrack.entitlements; sourceTree = "<group>"; };
 		66A75F1B268FE28300F5A2CC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		66A75F1D268FE3EF00F5A2CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		66B93216269E8F0B00BE1B82 /* Blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue@2x.png"; sourceTree = "<group>"; };
+		66B93217269E8F0B00BE1B82 /* Blue@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue@1x.png"; sourceTree = "<group>"; };
+		66B9321A269E8F1700BE1B82 /* Blue@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue@3x.png"; sourceTree = "<group>"; };
+		66B9321C269E8F4600BE1B82 /* Green@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@1x.png"; sourceTree = "<group>"; };
+		66B9321D269E8F4600BE1B82 /* Green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@2x.png"; sourceTree = "<group>"; };
+		66B9321E269E8F4600BE1B82 /* Green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@3x.png"; sourceTree = "<group>"; };
+		66B93222269E8FD000BE1B82 /* IconNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNames.swift; sourceTree = "<group>"; };
 		66E1BB5B2675CBA5008D88C8 /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		6AF17FBC250C47AD4B5BC2FB /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		8016A7122042026B58FF1299 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -88,6 +102,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		66B93215269E8E1400BE1B82 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				66B93217269E8F0B00BE1B82 /* Blue@1x.png */,
+				66B93216269E8F0B00BE1B82 /* Blue@2x.png */,
+				66B9321A269E8F1700BE1B82 /* Blue@3x.png */,
+				66B9321C269E8F4600BE1B82 /* Green@1x.png */,
+				66B9321D269E8F4600BE1B82 /* Green@2x.png */,
+				66B9321E269E8F4600BE1B82 /* Green@3x.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 		C20D77E124B665D7002E7AEA = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +138,7 @@
 		C20D77EC24B665D7002E7AEA /* Backtrack */ = {
 			isa = PBXGroup;
 			children = (
+				66B93215269E8E1400BE1B82 /* Icons */,
 				66A75F19268FE27C00F5A2CC /* Backtrack.entitlements */,
 				C20D77ED24B665D7002E7AEA /* BacktrackApp.swift */,
 				C2FEB33624B7C9DA004FAB73 /* Views */,
@@ -139,6 +167,7 @@
 				C20D780224B684BD002E7AEA /* Landmark.swift */,
 				66A75F17268FE02300F5A2CC /* LocationHelper.swift */,
 				6692EC762692942700E6053B /* Delegate.swift */,
+				66B93222269E8FD000BE1B82 /* IconNames.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,7 +278,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66B9321F269E8F4600BE1B82 /* Green@1x.png in Resources */,
+				66B93218269E8F0B00BE1B82 /* Blue@2x.png in Resources */,
+				66B93221269E8F4600BE1B82 /* Green@3x.png in Resources */,
+				66B93220269E8F4600BE1B82 /* Green@2x.png in Resources */,
+				66B93219269E8F0B00BE1B82 /* Blue@1x.png in Resources */,
 				C20D77F524B665D8002E7AEA /* Preview Assets.xcassets in Resources */,
+				66B9321B269E8F1700BE1B82 /* Blue@3x.png in Resources */,
 				C20D77F224B665D8002E7AEA /* Assets.xcassets in Resources */,
 				C20D780724B685AC002E7AEA /* landmarkData.json in Resources */,
 			);
@@ -269,6 +304,7 @@
 				C20D77FF24B67FB3002E7AEA /* MapView.swift in Sources */,
 				C20D780B24B68B4D002E7AEA /* LandmarkList.swift in Sources */,
 				6692EC772692942700E6053B /* Delegate.swift in Sources */,
+				66B93223269E8FD000BE1B82 /* IconNames.swift in Sources */,
 				66E1BB5C2675CBA5008D88C8 /* AppView.swift in Sources */,
 				C20D77EE24B665D7002E7AEA /* BacktrackApp.swift in Sources */,
 				C2C583BD24DB807000DD0019 /* ContentView.swift in Sources */,
