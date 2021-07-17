@@ -30,22 +30,26 @@ class LocationHelper: NSObject, ObservableObject {
         self.locationManager.distanceFilter = 200
         do{
             let dir = try FileManager.default.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
-            let driveURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
+            let currentToken = FileManager.default.ubiquityIdentityToken
+            if (currentToken == nil){
+                NSLog("no good!")
+            }
+//            let driveURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
             self.fh = dir.appendingPathComponent("backtrack.csv")
             var containerUrl: URL? {
                 return FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
             }
             // check for container existence
-            if let driveURL = containerUrl, !FileManager.default.fileExists(atPath: driveURL.path, isDirectory: nil) {
-                do {
-                    try FileManager.default.createDirectory(at: driveURL, withIntermediateDirectories: true, attributes: nil)
-                }
-                catch {
-                    print(error.localizedDescription)
-                }
-            }
-            
-            NSLog(driveURL?.absoluteString ?? "no URL")
+//            if let driveURL = containerUrl, !FileManager.default.fileExists(atPath: driveURL.path, isDirectory: nil) {
+//                do {
+//                    try FileManager.default.createDirectory(at: driveURL, withIntermediateDirectories: true, attributes: nil)
+//                }
+//                catch {
+//                    print(error.localizedDescription)
+//                }
+//            }
+//
+//            NSLog(driveURL?.absoluteString ?? "no URL")
             
             if !FileManager.default.fileExists(atPath: self.fh!.path) {
                 let s = "DateTime,Latitude,Longitude,Device\n"
