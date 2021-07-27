@@ -17,10 +17,11 @@ class LocationHelper: NSObject, ObservableObject {
     private var lastLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     @Published var authorisationStatus: CLAuthorizationStatus = .notDetermined
     @Published var active: Bool = false
+    @Published var iCloudAvail: Bool = false
+    @Published var iCloudActive: Bool = true
     @Published var currentDevice: String = "PlaceholderDevice"
     
     private var fh: URL? = nil
-    private var cloudFh: URL? = nil
 
     override init() {
         super.init()
@@ -29,36 +30,25 @@ class LocationHelper: NSObject, ObservableObject {
         self.locationManager.pausesLocationUpdatesAutomatically = false
         self.locationManager.distanceFilter = 200
         do{
-            let dir = try FileManager.default.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
+            var dir = try FileManager.default.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
+            
             let currentToken = FileManager.default.ubiquityIdentityToken
-            if (currentToken == nil){
-                NSLog("no good!")
+            if (currentToken != nil){ self.iCloudAvail = true }
+            
+            if (self.iCloudAvail && self.iCloudActive){
+                dir = (FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents"))!
             }
-//            let driveURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
+            
             self.fh = dir.appendingPathComponent("backtrack.csv")
             var containerUrl: URL? {
                 return FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
             }
-            // check for container existence
-//            if let driveURL = containerUrl, !FileManager.default.fileExists(atPath: driveURL.path, isDirectory: nil) {
-//                do {
-//                    try FileManager.default.createDirectory(at: driveURL, withIntermediateDirectories: true, attributes: nil)
-//                }
-//                catch {
-//                    print(error.localizedDescription)
-//                }
-//            }
-//
-//            NSLog(driveURL?.absoluteString ?? "no URL")
             
             if !FileManager.default.fileExists(atPath: self.fh!.path) {
                 let s = "DateTime,Latitude,Longitude,Device\n"
                 try s.write(to: self.fh!, atomically: true, encoding: .utf8)
             }
-//            if !FileManager.default.fileExists(atPath: self.cloudFh!.path) {
-//                let s = "DateTime,Latitude,Longitude,Device\n"
-//                try s.write(to: self.fh!, atomically: true, encoding: .utf8)
-//            }
+
         } catch let error as NSError {
             NSLog("Problem opening the appropriate file: \(error)")
         }
@@ -66,7 +56,7 @@ class LocationHelper: NSObject, ObservableObject {
     }
     
     public func start(){
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         if CLLocationManager.locationServicesEnabled(){
             locationManager.startUpdatingLocation()
             locationManager.startMonitoringSignificantLocationChanges()
