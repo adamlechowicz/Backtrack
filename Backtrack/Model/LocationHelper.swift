@@ -14,12 +14,13 @@ import CoreLocation
 
 class LocationHelper: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
+    private let userDefaults = UserDefaults.standard
     private var lastLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     @Published var authorisationStatus: CLAuthorizationStatus = .notDetermined
     @Published var active: Bool = false
     @Published var iCloudAvail: Bool = false
     @Published var iCloudActive: Bool = true
-    @Published var currentDevice: String = "PlaceholderDevice"
+    @Published var currentDevice: String = ""
     
     private var fh: URL? = nil
 
@@ -29,6 +30,18 @@ class LocationHelper: NSObject, ObservableObject {
         self.locationManager.allowsBackgroundLocationUpdates = true
         self.locationManager.pausesLocationUpdatesAutomatically = false
         self.locationManager.distanceFilter = 200
+        
+        // get User Settings from local account, which will be synced with iCloud
+        if userDefaults.value(forKey: "sync") == nil { // set default values at first launch
+            userDefaults.set("Backtrack", forKey: "sync")
+            userDefaults.set(false, forKey: "syncActive")
+            userDefaults.set(true, forKey: "synciCloudActive")
+        }
+        
+        self.iCloudActive = userDefaults.bool(forKey: "synciCloudActive")
+        self.active = userDefaults.bool(forKey: "syncActive")
+        self.currentDevice = userDefaults.string(forKey: "syncLoggingDevice") ?? ""
+        
         do{
             var dir = try FileManager.default.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
             
@@ -40,9 +53,6 @@ class LocationHelper: NSObject, ObservableObject {
             }
             
             self.fh = dir.appendingPathComponent("backtrack.csv")
-            var containerUrl: URL? {
-                return FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
-            }
             
             if !FileManager.default.fileExists(atPath: self.fh!.path) {
                 let s = "DateTime,Latitude,Longitude,Device\n"
@@ -52,16 +62,18 @@ class LocationHelper: NSObject, ObservableObject {
         } catch let error as NSError {
             NSLog("Problem opening the appropriate file: \(error)")
         }
-        self.currentDevice = UIDevice.current.name
+        if (self.active && (self.currentDevice == UIDevice.current.name)){ self.start() }
     }
     
     public func start(){
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        self.currentDevice = UIDevice.current.name
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         if CLLocationManager.locationServicesEnabled(){
             locationManager.startUpdatingLocation()
             locationManager.startMonitoringSignificantLocationChanges()
         }
         self.active = true
+        userDefaults.set(UIDevice.current.name, forKey: "syncLoggingDevice")
     }
     
     public func stop(){
@@ -75,11 +87,35 @@ class LocationHelper: NSObject, ObservableObject {
     public func toggle(){
         if self.active {
             self.stop()
+            userDefaults.set(false, forKey: "syncActive")
             setApplicationIconName("Blue")
         } else {
             self.start()
+            userDefaults.set(true, forKey: "syncActive")
             setApplicationIconName("Green")
         }
+        userDefaults.synchronize()
+    }
+    
+    public func iCloudToggle(){
+        if self.iCloudActive {
+            do{
+                self.iCloudActive = false
+                userDefaults.set(false, forKey: "synciCloudActive")
+                let dir = try FileManager.default.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
+                self.fh = dir.appendingPathComponent("backtrack.csv")
+            } catch let error as NSError {
+                NSLog("Problem opening the appropriate file: \(error)")
+            }
+        } else {
+            do{
+                self.iCloudActive = true
+                userDefaults.set(true, forKey: "synciCloudActive")
+                let dir = (FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents"))!
+                self.fh = dir.appendingPathComponent("backtrack.csv")
+            }
+        }
+        userDefaults.synchronize()
     }
     
     public func getLocation(){
@@ -129,13 +165,6 @@ extension LocationHelper: CLLocationManagerDelegate {
                 fileHandle.seekToEndOfFile()
                 fileHandle.write(s.data(using: String.Encoding.utf8)!)
             }
-//            if let fileHandle = FileHandle(forWritingAtPath: self.cloudFh!.path) {
-//                defer {
-//                    fileHandle.closeFile()
-//                }
-//                fileHandle.seekToEndOfFile()
-//                fileHandle.write(s.data(using: String.Encoding.utf8)!)
-//            }
         }
         self.lastLocation = locValue
     }
@@ -144,6 +173,7 @@ extension LocationHelper: CLLocationManagerDelegate {
         NSLog("ERROR - No Location Received")
     }
 }
+
 
 func setApplicationIconName(_ iconName: String?) {
     if UIApplication.shared.responds(to: #selector(getter: UIApplication.supportsAlternateIcons)) && UIApplication.shared.supportsAlternateIcons {

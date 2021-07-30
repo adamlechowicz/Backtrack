@@ -15,7 +15,7 @@ struct AppView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            ConfigView()
+            ConfigView(toggle_iCloudOn: self.locHelper.iCloudActive)
                 .tabItem {
                     Image(systemName: "book.fill")
                     Text("Config")

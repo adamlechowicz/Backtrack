@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6617F1CE26B3A86A009121A5 /* MKiCloudSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617F1CD26B3A86A009121A5 /* MKiCloudSync.m */; };
 		6625DE4326916A9F0036A025 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625DE4226916A9F0036A025 /* ConfigView.swift */; };
 		6625DE4526916D670036A025 /* ItemButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625DE4426916D670036A025 /* ItemButtonStyle.swift */; };
 		6692EC772692942700E6053B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6692EC762692942700E6053B /* Delegate.swift */; };
@@ -37,6 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6617F1CB26B3A868009121A5 /* Backtrack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backtrack-Bridging-Header.h"; sourceTree = "<group>"; };
+		6617F1CC26B3A86A009121A5 /* MKiCloudSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKiCloudSync.h; sourceTree = "<group>"; };
+		6617F1CD26B3A86A009121A5 /* MKiCloudSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKiCloudSync.m; sourceTree = "<group>"; };
 		6625DE4226916A9F0036A025 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		6625DE4426916D670036A025 /* ItemButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemButtonStyle.swift; sourceTree = "<group>"; };
 		6692EC762692942700E6053B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -163,11 +167,14 @@
 		C20D780824B685C4002E7AEA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6617F1CC26B3A86A009121A5 /* MKiCloudSync.h */,
+				6617F1CD26B3A86A009121A5 /* MKiCloudSync.m */,
 				C20D780424B684EC002E7AEA /* ModelData.swift */,
 				C20D780224B684BD002E7AEA /* Landmark.swift */,
 				66A75F17268FE02300F5A2CC /* LocationHelper.swift */,
 				6692EC762692942700E6053B /* Delegate.swift */,
 				66B93222269E8FD000BE1B82 /* IconNames.swift */,
+				6617F1CB26B3A868009121A5 /* Backtrack-Bridging-Header.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -252,6 +259,7 @@
 				TargetAttributes = {
 					C20D77E924B665D7002E7AEA = {
 						CreatedOnToolsVersion = 12.0;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -306,6 +314,7 @@
 				6692EC772692942700E6053B /* Delegate.swift in Sources */,
 				66B93223269E8FD000BE1B82 /* IconNames.swift in Sources */,
 				66E1BB5C2675CBA5008D88C8 /* AppView.swift in Sources */,
+				6617F1CE26B3A86A009121A5 /* MKiCloudSync.m in Sources */,
 				C20D77EE24B665D7002E7AEA /* BacktrackApp.swift in Sources */,
 				C2C583BD24DB807000DD0019 /* ContentView.swift in Sources */,
 				C20D780124B6846F002E7AEA /* LandmarkRow.swift in Sources */,
@@ -443,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Backtrack/Backtrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7.16.2021;
@@ -459,6 +469,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamlechowicz.Backtrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Backtrack/Model/Backtrack-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -470,6 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Backtrack/Backtrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7.16.2021;
@@ -486,6 +499,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamlechowicz.Backtrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Backtrack/Model/Backtrack-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

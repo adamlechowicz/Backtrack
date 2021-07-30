@@ -12,15 +12,23 @@ struct ConfigView: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var locHelper: LocationHelper
     @Environment(\.colorScheme) var colorScheme
+    @State var toggle_iCloudOn: Bool
     
     let screenWidth = UIScreen.main.bounds.size.width
     
-    init() {
-        UITableView.appearance().tableHeaderView = UIView()
-    }
-    
     var body: some View {
         VStack{
+            HStack{
+                Toggle(isOn: $toggle_iCloudOn, label: {
+                    Image(systemName: "icloud.fill")
+                    Text("iCloud Logging: ")
+                    Text(toggle_iCloudOn ? "ON" : "OFF")
+                        .bold().foregroundColor(self.locHelper.active ? Color(UIColor(named: "EmeraldGreen") ?? .green) : Color(UIColor(named: "OceanBlue") ?? .blue))
+                })
+                    .onChange(of: toggle_iCloudOn, perform: { value in
+                        self.locHelper.iCloudToggle()
+                    })
+            }.disabled(!self.locHelper.iCloudAvail).padding(.all).toggleStyle(SwitchToggleStyle(tint: (self.locHelper.active ? .green : .blue)))
             Button(action:{
                 self.locHelper.doSomethingStupid()
                 self.locHelper.toggle()
@@ -48,7 +56,7 @@ struct ConfigView: View {
 
 struct ConfigView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfigView().environmentObject(ModelData()).environmentObject(LocationHelper())
+        ConfigView(toggle_iCloudOn: false).previewDevice("iPhone 8").environmentObject(ModelData()).environmentObject(LocationHelper())
     }
 }
 
