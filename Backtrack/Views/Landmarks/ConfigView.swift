@@ -19,16 +19,34 @@ struct ConfigView: View {
     var body: some View {
         VStack{
             HStack{
-                Toggle(isOn: $toggle_iCloudOn, label: {
-                    Image(systemName: "icloud.fill")
-                    Text("iCloud Logging: ")
-                    Text(toggle_iCloudOn ? "ON" : "OFF")
-                        .bold().foregroundColor(self.locHelper.active ? Color(UIColor(named: "EmeraldGreen") ?? .green) : Color(UIColor(named: "OceanBlue") ?? .blue))
-                })
-                    .onChange(of: toggle_iCloudOn, perform: { value in
-                        self.locHelper.iCloudToggle()
+                Text("Backtrack")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding(.leading, 20.0)
+                    .padding(.top, 35.0)
+                    .padding(.vertical)
+                Text("Config")
+                    .font(.largeTitle)
+                    .fontWeight(.light)
+                    .padding(.top, 35.0)
+                    .padding(.vertical)
+                Spacer()
+            }
+            List{
+                HStack{
+                    Toggle(isOn: $toggle_iCloudOn, label: {
+                        Image(systemName: "icloud.fill")
+                        Text("iCloud Logging: ")
+                        Text(toggle_iCloudOn ? "ON" : "OFF")
+                            .bold().foregroundColor(self.locHelper.active ? Color(UIColor(named: "EmeraldGreen") ?? .green) : Color(UIColor(named: "OceanBlue") ?? .blue))
                     })
-            }.disabled(!self.locHelper.iCloudAvail).padding(.all).toggleStyle(SwitchToggleStyle(tint: (self.locHelper.active ? .green : .blue)))
+                        .onChange(of: toggle_iCloudOn, perform: { value in
+                            self.locHelper.iCloudToggle()
+                        })
+                }.disabled(!self.locHelper.iCloudAvail).padding(.vertical, 7.0).toggleStyle(SwitchToggleStyle(tint: (self.locHelper.active ? .green : .blue)))
+            }.listStyle(InsetGroupedListStyle()).onAppear {
+                UITableView.appearance().isScrollEnabled = false
+            }
             Button(action:{
                 self.locHelper.doSomethingStupid()
                 self.locHelper.toggle()
@@ -43,14 +61,16 @@ struct ConfigView: View {
                     .font(.headline)
                     .cornerRadius(17.0)
             }.buttonStyle(SimpleButtonStyle())
-        }.onAppear(){
+            .padding(.all)
+            .padding(.bottom)
+        }
+        .padding(.bottom)
+        .onAppear(){
             DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
                 
             }
         }
-        .navigationBarTitle("Home", displayMode: .large)
     }
-    
 }
 
 
