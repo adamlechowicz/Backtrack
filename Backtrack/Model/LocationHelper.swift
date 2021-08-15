@@ -21,6 +21,7 @@ class LocationHelper: NSObject, ObservableObject {
     @Published var iCloudAvail: Bool = false
     @Published var iCloudActive: Bool = true
     @Published var currentDevice: String = ""
+    @Published var distanceFilterVal: Int = 200
     
     private var fh: URL? = nil
 
@@ -29,11 +30,11 @@ class LocationHelper: NSObject, ObservableObject {
         self.locationManager.delegate = self
         self.locationManager.allowsBackgroundLocationUpdates = true
         self.locationManager.pausesLocationUpdatesAutomatically = false
-        self.locationManager.distanceFilter = 200
         
         // get User Settings from local account, which will be synced with iCloud
         if userDefaults.value(forKey: "sync") == nil { // set default values at first launch
             userDefaults.set("Backtrack", forKey: "sync")
+            userDefaults.set(200, forKey: "syncDistanceFilter")
             userDefaults.set(false, forKey: "syncActive")
             userDefaults.set(true, forKey: "synciCloudActive")
         }
@@ -41,6 +42,8 @@ class LocationHelper: NSObject, ObservableObject {
         self.iCloudActive = userDefaults.bool(forKey: "synciCloudActive")
         self.active = userDefaults.bool(forKey: "syncActive")
         self.currentDevice = userDefaults.string(forKey: "syncLoggingDevice") ?? ""
+        self.distanceFilterVal = userDefaults.integer(forKey: "syncDistance")
+        self.locationManager.distanceFilter = CLLocationDistance(self.distanceFilterVal)
         
         do{
             var dir = try FileManager.default.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
@@ -116,6 +119,12 @@ class LocationHelper: NSObject, ObservableObject {
             }
         }
         userDefaults.synchronize()
+    }
+    
+    public func setLocationFilter(_ value: Int){
+        self.distanceFilterVal = value
+        self.locationManager.distanceFilter = CLLocationDistance(value)
+        userDefaults.set(value, forKey: "syncDistanceFilter")
     }
     
     public func getLocation(){

@@ -13,9 +13,15 @@ struct AppView: View {
     //@EnvironmentObject var model: Model
     @EnvironmentObject var locHelper: LocationHelper
     
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(self.locHelper.active ? Color(UIColor(named: "EmeraldGreen") ?? .green) : Color(UIColor(named: "OceanBlue") ?? .blue))
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(self.locHelper.active ? Color(UIColor(named: "EmeraldGreen") ?? .green) : Color(UIColor(named: "OceanBlue") ?? .blue))], for: .normal)
+    }
+    
     var body: some View {
         TabView(selection: $selection) {
-            ConfigView(toggle_iCloudOn: self.locHelper.iCloudActive)
+            ConfigView(toggle_iCloudOn: self.locHelper.iCloudActive, filter_selection: self.locHelper.distanceFilterVal)
                 .tabItem {
                     Image(systemName: "book.fill")
                     Text("Config")
