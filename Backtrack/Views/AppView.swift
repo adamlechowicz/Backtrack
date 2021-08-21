@@ -13,12 +13,6 @@ struct AppView: View {
     //@EnvironmentObject var model: Model
     @EnvironmentObject var locHelper: LocationHelper
     
-    init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(self.locHelper.active ? Color(UIColor(named: "EmeraldGreen") ?? .green) : Color(UIColor(named: "OceanBlue") ?? .blue))
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(self.locHelper.active ? Color(UIColor(named: "EmeraldGreen") ?? .green) : Color(UIColor(named: "OceanBlue") ?? .blue))], for: .normal)
-    }
-    
     var body: some View {
         TabView(selection: $selection) {
             ConfigView(toggle_iCloudOn: self.locHelper.iCloudActive, filter_selection: self.locHelper.distanceFilterVal)
@@ -59,8 +53,6 @@ struct AppView: View {
 
 struct AppView_Previews: PreviewProvider {
     static var previews: some View {
-        AppView()
-            .environmentObject(ModelData())
-            .environmentObject(LocationHelper())
+        AppView().environmentObject(LocationHelper()).environmentObject(ModelData())
     }
 }

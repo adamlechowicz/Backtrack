@@ -42,7 +42,7 @@ class LocationHelper: NSObject, ObservableObject {
         self.iCloudActive = userDefaults.bool(forKey: "synciCloudActive")
         self.active = userDefaults.bool(forKey: "syncActive")
         self.currentDevice = userDefaults.string(forKey: "syncLoggingDevice") ?? ""
-        self.distanceFilterVal = userDefaults.integer(forKey: "syncDistance")
+        self.distanceFilterVal = userDefaults.integer(forKey: "syncDistanceFilter")
         self.locationManager.distanceFilter = CLLocationDistance(self.distanceFilterVal)
         
         do{

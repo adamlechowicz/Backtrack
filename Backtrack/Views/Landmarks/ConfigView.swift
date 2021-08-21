@@ -40,7 +40,7 @@ struct ConfigView: View {
                         Text("Distance Filter")
                         Spacer()
                     }
-                    Picker(selection: $filter_selection, label: Text("What is your favorite color?")) {
+                    Picker(selection: $filter_selection, label: Text("Distance Filter")) {
                             Text("50m").tag(50)
                             Text("100m").tag(100)
                             Text("200m").tag(200)
@@ -81,8 +81,7 @@ struct ConfigView: View {
                     .cornerRadius(17.0)
             }.buttonStyle(SimpleButtonStyle())
             .padding(.all)
-            .padding(.bottom)
-        }
+        }.background(Color(UIColor.systemGroupedBackground))
         .padding(.bottom)
         .onAppear(){
             DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
