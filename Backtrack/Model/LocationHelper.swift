@@ -142,6 +142,10 @@ class LocationHelper: NSObject, ObservableObject {
     public func doSomethingStupid(){
         NSLog("Something Stupid!")
     }
+    
+    public func getFileURL() -> URL{
+        return self.fh!
+    }
 }
 
 extension LocationHelper: CLLocationManagerDelegate {

@@ -32,7 +32,7 @@ struct ConfigView: View {
                     .padding(.top, 35.0)
                     .padding(.vertical)
                 Spacer()
-            }
+            }.padding(.top, 20.0)
             List{
                 VStack{
                     HStack{
@@ -55,7 +55,7 @@ struct ConfigView: View {
                 HStack{
                     Toggle(isOn: $toggle_iCloudOn, label: {
                         Image(systemName: "icloud.fill")
-                        Text("iCloud Logging: ")
+                        Text("iCloud Drive: ")
                         Text(toggle_iCloudOn ? "ON" : "OFF")
                             .bold().foregroundColor(self.locHelper.active ? Color(UIColor(named: "EmeraldGreen") ?? .green) : Color(UIColor(named: "OceanBlue") ?? .blue))
                     })
@@ -81,8 +81,9 @@ struct ConfigView: View {
                     .cornerRadius(17.0)
             }.buttonStyle(SimpleButtonStyle())
             .padding(.all)
+            .padding(.bottom)
         }.background(Color(UIColor.systemGroupedBackground))
-        .padding(.bottom)
+        .edgesIgnoringSafeArea(.top)
         .onAppear(){
             DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
                 
@@ -94,7 +95,7 @@ struct ConfigView: View {
 
 struct ConfigView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfigView(toggle_iCloudOn: false, filter_selection: 200).previewDevice("iPhone 8").environmentObject(ModelData()).environmentObject(LocationHelper())
+        ConfigView(toggle_iCloudOn: false, filter_selection: 200).previewDevice("iPhone 8").environmentObject(ModelData(LocationHelper())).environmentObject(LocationHelper())
     }
 }
 

@@ -17,14 +17,14 @@ struct AppView: View {
         TabView(selection: $selection) {
             ConfigView(toggle_iCloudOn: self.locHelper.iCloudActive, filter_selection: self.locHelper.distanceFilterVal)
                 .tabItem {
-                    Image(systemName: "book.fill")
+                    Image(systemName: "gearshape.2.fill")
                     Text("Config")
                 }
                 .tag(1)
-            LandmarkList()
+            DataView()
                 .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
+                    Image(systemName: "map.fill")
+                    Text("View Data")
                 }
                 .tag(2)
         }.onAppear(){
@@ -53,6 +53,6 @@ struct AppView: View {
 
 struct AppView_Previews: PreviewProvider {
     static var previews: some View {
-        AppView().environmentObject(LocationHelper()).environmentObject(ModelData())
+        AppView().environmentObject(LocationHelper()).environmentObject(ModelData(LocationHelper()))
     }
 }

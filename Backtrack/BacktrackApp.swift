@@ -10,12 +10,16 @@ import SwiftUI
 @main
 struct BacktrackApp: App {
     @StateObject private var locHelper = LocationHelper()
-    @StateObject private var modelData = ModelData()
+    private var modelData: ModelData?
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
+    init(){
+        self.modelData = ModelData(locHelper)
+    }
     
     var body: some Scene {
         WindowGroup {
-            AppView().environmentObject(locHelper).environmentObject(modelData)
+            AppView().environmentObject(locHelper).environmentObject(modelData!)
         }
     }
 }
