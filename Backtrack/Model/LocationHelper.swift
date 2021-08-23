@@ -49,7 +49,13 @@ class LocationHelper: NSObject, ObservableObject {
             var dir = try FileManager.default.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
             
             let currentToken = FileManager.default.ubiquityIdentityToken
-            if (currentToken != nil){ self.iCloudAvail = true }
+            if (currentToken != nil){
+                self.iCloudAvail = true
+                
+            } else {
+                userDefaults.set(false, forKey: "synciCloudActive")
+                self.iCloudActive = false
+            }
             
             if (self.iCloudAvail && self.iCloudActive){
                 dir = (FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents"))!

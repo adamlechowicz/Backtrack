@@ -33,6 +33,7 @@ final class ModelData: ObservableObject {
     @Published var data = [DataPoint(id: Date(), device:"Test", coordinates: DataPoint.Coordinates(latitude:42.175898, longitude: -72.509578))]
     @Published var dateBoundaries: ClosedRange<Date> = Date()...Date()
     @Published var ready: Bool = false
+    @Published var intervalReady: Bool = true
     
     private var stringData: String = ""
     private var startDate: Date? = nil
@@ -45,8 +46,9 @@ final class ModelData: ObservableObject {
     }
     
     public func setInterval(_ start: Date, _ end: Date){
-        self.startDate = start
-        self.endDate = end
+        self.intervalReady = false
+        self.startDate = Calendar.current.date(byAdding: .day, value: -1, to: start)!
+        self.endDate = Calendar.current.date(byAdding: .day, value: 1, to: end)!
         self.getDataForInterval()
     }
     
@@ -71,12 +73,16 @@ final class ModelData: ObservableObject {
         //get lower boundary
         let first = rows[0]
         var columns = first.components(separatedBy: ",")
-        let lowerBound = getDate(columns[0])!
+        let lowerBound = getDate(columns[0]) ?? Date(timeIntervalSince1970: 0)
+        
+        if(lowerBound == Date(timeIntervalSince1970: 0)){
+            return
+        }
         
         //get upper boundary
         let last = rows[rows.count-2]
         columns = last.components(separatedBy: ",")
-        let upperBound = getDate(columns[0])!
+        let upperBound = getDate(columns[0]) ?? Date()
         
         self.dateBoundaries = lowerBound...upperBound
         self.ready = true
@@ -123,6 +129,7 @@ final class ModelData: ObservableObject {
                 self.data.append(DataPoint(id: date!, device: device, coordinates: coord))
             }
         }
+        self.intervalReady = true
     }
 }
 

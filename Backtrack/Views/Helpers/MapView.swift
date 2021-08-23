@@ -46,6 +46,7 @@ struct MapView: UIViewRepresentable {
         let region = MKCoordinateRegion(center: center.center, span: center.span)
         uiView.setRegion(region, animated: true)
         uiView.showsUserLocation = true
+        uiView.layoutMargins = UIEdgeInsets(top: 150, left: 10, bottom: 10, right: 10)
         
         for point in points{
             let annotation = MKPointAnnotation()
