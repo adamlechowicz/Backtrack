@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6617F1CE26B3A86A009121A5 /* MKiCloudSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617F1CD26B3A86A009121A5 /* MKiCloudSync.m */; };
-		6625DE4326916A9F0036A025 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625DE4226916A9F0036A025 /* ConfigView.swift */; };
 		6625DE4526916D670036A025 /* ItemButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625DE4426916D670036A025 /* ItemButtonStyle.swift */; };
 		6692EC772692942700E6053B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6692EC762692942700E6053B /* Delegate.swift */; };
 		66A75F18268FE02300F5A2CC /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A75F17268FE02300F5A2CC /* LocationHelper.swift */; };
@@ -21,6 +20,8 @@
 		66B93220269E8F4600BE1B82 /* Green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B9321D269E8F4600BE1B82 /* Green@2x.png */; };
 		66B93221269E8F4600BE1B82 /* Green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B9321E269E8F4600BE1B82 /* Green@3x.png */; };
 		66B93223269E8FD000BE1B82 /* IconNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B93222269E8FD000BE1B82 /* IconNames.swift */; };
+		66D28F7E26D34F4E00441275 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D28F7C26D34F4E00441275 /* DataView.swift */; };
+		66D28F7F26D34F4E00441275 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D28F7D26D34F4E00441275 /* ConfigView.swift */; };
 		66E1BB5C2675CBA5008D88C8 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1BB5B2675CBA5008D88C8 /* AppView.swift */; };
 		C20D77EE24B665D7002E7AEA /* BacktrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77ED24B665D7002E7AEA /* BacktrackApp.swift */; };
 		C20D77F224B665D8002E7AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C20D77F124B665D8002E7AEA /* Assets.xcassets */; };
@@ -30,7 +31,6 @@
 		C20D780324B684BD002E7AEA /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D780224B684BD002E7AEA /* Landmark.swift */; };
 		C20D780524B684EC002E7AEA /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D780424B684EC002E7AEA /* ModelData.swift */; };
 		C20D780724B685AC002E7AEA /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = C20D780624B685AC002E7AEA /* landmarkData.json */; };
-		C20D780B24B68B4D002E7AEA /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D780A24B68B4D002E7AEA /* DataView.swift */; };
 		C2C583BD24DB807000DD0019 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C583BC24DB807000DD0019 /* ContentView.swift */; };
 		C2C583C224DB80DA00DD0019 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C583C124DB80DA00DD0019 /* FavoriteButton.swift */; };
 /* End PBXBuildFile section */
@@ -39,7 +39,6 @@
 		6617F1CB26B3A868009121A5 /* Backtrack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backtrack-Bridging-Header.h"; sourceTree = "<group>"; };
 		6617F1CC26B3A86A009121A5 /* MKiCloudSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKiCloudSync.h; sourceTree = "<group>"; };
 		6617F1CD26B3A86A009121A5 /* MKiCloudSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKiCloudSync.m; sourceTree = "<group>"; };
-		6625DE4226916A9F0036A025 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		6625DE4426916D670036A025 /* ItemButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemButtonStyle.swift; sourceTree = "<group>"; };
 		6692EC762692942700E6053B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		66A75F17268FE02300F5A2CC /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
@@ -53,6 +52,8 @@
 		66B9321D269E8F4600BE1B82 /* Green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@2x.png"; sourceTree = "<group>"; };
 		66B9321E269E8F4600BE1B82 /* Green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@3x.png"; sourceTree = "<group>"; };
 		66B93222269E8FD000BE1B82 /* IconNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNames.swift; sourceTree = "<group>"; };
+		66D28F7C26D34F4E00441275 /* DataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
+		66D28F7D26D34F4E00441275 /* ConfigView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		66E1BB5B2675CBA5008D88C8 /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		6AF17FBC250C47AD4B5BC2FB /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		8016A7122042026B58FF1299 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		C20D780224B684BD002E7AEA /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		C20D780424B684EC002E7AEA /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		C20D780624B685AC002E7AEA /* landmarkData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
-		C20D780A24B68B4D002E7AEA /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		C2AC4E9B24DE2936005E019B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C2C583BC24DB807000DD0019 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C2C583C124DB80DA00DD0019 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
@@ -193,21 +193,13 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		C2C583C324DB80FC00DD0019 /* Landmarks */ = {
-			isa = PBXGroup;
-			children = (
-				C20D780A24B68B4D002E7AEA /* DataView.swift */,
-				6625DE4226916A9F0036A025 /* ConfigView.swift */,
-			);
-			path = Landmarks;
-			sourceTree = "<group>";
-		};
 		C2FEB33624B7C9DA004FAB73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				66D28F7D26D34F4E00441275 /* ConfigView.swift */,
+				66D28F7C26D34F4E00441275 /* DataView.swift */,
 				66E1BB5B2675CBA5008D88C8 /* AppView.swift */,
 				C2C583BC24DB807000DD0019 /* ContentView.swift */,
-				C2C583C324DB80FC00DD0019 /* Landmarks */,
 				C2C583BE24DB80C300DD0019 /* Helpers */,
 			);
 			path = Views;
@@ -303,16 +295,16 @@
 				66A75F18268FE02300F5A2CC /* LocationHelper.swift in Sources */,
 				C20D780524B684EC002E7AEA /* ModelData.swift in Sources */,
 				C20D77FF24B67FB3002E7AEA /* MapView.swift in Sources */,
-				C20D780B24B68B4D002E7AEA /* DataView.swift in Sources */,
 				6692EC772692942700E6053B /* Delegate.swift in Sources */,
 				66B93223269E8FD000BE1B82 /* IconNames.swift in Sources */,
+				66D28F7F26D34F4E00441275 /* ConfigView.swift in Sources */,
 				66E1BB5C2675CBA5008D88C8 /* AppView.swift in Sources */,
 				6617F1CE26B3A86A009121A5 /* MKiCloudSync.m in Sources */,
 				C20D77EE24B665D7002E7AEA /* BacktrackApp.swift in Sources */,
 				C2C583BD24DB807000DD0019 /* ContentView.swift in Sources */,
+				66D28F7E26D34F4E00441275 /* DataView.swift in Sources */,
 				C20D77FD24B668F4002E7AEA /* CircleImage.swift in Sources */,
 				C2C583C224DB80DA00DD0019 /* FavoriteButton.swift in Sources */,
-				6625DE4326916A9F0036A025 /* ConfigView.swift in Sources */,
 				C20D780324B684BD002E7AEA /* Landmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
