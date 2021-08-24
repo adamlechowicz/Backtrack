@@ -12,8 +12,7 @@ struct DataView: View {
     @EnvironmentObject var locHelper: LocationHelper
     
     @State private var intervalSet = false
-    @State private var selectedStart = Date()
-    @State private var selectedEnd = Date()
+    @State private var selectedDate = Date()
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -25,14 +24,28 @@ struct DataView: View {
         if(modelData.ready){
             ZStack{
                 VStack{
-                    if(modelData.data.count > 0 && modelData.intervalReady){
+                    if(modelData.data.count > 0 && modelData.dataReady){
                         MapView(points: modelData.data).environmentObject(modelData)
-                    } else if (modelData.intervalReady){
-                        Text("Select a range of dates to look at.")
-                        Spacer()
+                    } else if (modelData.dataReady){
+                        VStack{
+                            Spacer()
+                            HStack{
+                                Spacer()
+                                Text(" No data available for the selected date.\n ❌🗓").font(.title2).fontWeight(.heavy).foregroundColor(Color.gray).multilineTextAlignment(.center).padding(.horizontal, 40.0)
+                                Spacer()
+                            }
+                            Spacer()
+                        }.background(Color(UIColor.systemGroupedBackground))
                     } else {
-                        Text("loading...")
-                        Spacer()
+                        VStack{
+                            Spacer()
+                            HStack{
+                                Spacer()
+                                Text("loading...").font(.title).fontWeight(.heavy).foregroundColor(Color.gray).multilineTextAlignment(.center).padding(.horizontal, 40.0)
+                                Spacer()
+                            }
+                            Spacer()
+                        }.background(Color(UIColor.systemGroupedBackground))
                     }
                 }
                 VStack{
@@ -48,36 +61,57 @@ struct DataView: View {
                                 .fontWeight(.light)
                                 .padding(.top, 20.0)
                             Spacer()
-                        }.padding(.top, 20.0)
-                        HStack{
-                            VStack {
-                                DatePicker(selection: $selectedStart, in: modelData.dateBoundaries, displayedComponents: .date) {
-                                    Text("Start Date").bold()
-                                }
-                                DatePicker(selection: $selectedEnd, in: modelData.dateBoundaries, displayedComponents: .date) {
-                                    Text("End Date").bold()
-                                }
-                            }
-                            .padding(.all)
-                            Button(action:{ self.modelData.setInterval(selectedStart, selectedEnd) }){
-                                HStack {
-                                    Text("Load").foregroundColor(self.locHelper.active ? .black : .white)
-                                }
-                                    .padding(.horizontal, 15.0)
-                                    .padding(.vertical, 15.0)
-                                    .background(Color(self.locHelper.active ? .green : .blue))
-                                    .foregroundColor(.white)
-                                    .font(.headline)
-                                    .cornerRadius(17.0)
+                            Button(action:{
+                                let path = locHelper.getFileURL().absoluteString.replacingOccurrences(of: "file://", with: "shareddocuments://").replacingOccurrences(of: "/backtrack.csv", with: "")
+                                let url = URL(string: path)!
+                                UIApplication.shared.open(url)
+                            }){
+                                Image(systemName: "square.and.arrow.down.fill")
+                                    .padding(.horizontal, 20.0)
+                                    .padding(.top, 20.0)
+                                    .foregroundColor(self.locHelper.active ? Color(UIColor(named: "EmeraldGreen") ?? .green) : Color(UIColor(named: "OceanBlue") ?? .blue))
+                                    .font(.title)
                             }.buttonStyle(SimpleButtonStyle())
-                            .padding(.all)
-                        }
+                        }.padding(.top, 20.0)
+                        ZStack{
+                            HStack{
+                                Text("Date:")
+                                    .fontWeight(.bold)
+                                    .padding(.leading, 20.0)
+                                Spacer()
+                            }
+                            DatePicker(selection: $selectedDate, in: modelData.dateBoundaries, displayedComponents: .date) {}.labelsHidden().datePickerStyle(CompactDatePickerStyle()).onChange(of: selectedDate, perform: { value in
+                                    self.modelData.setDate(selectedDate)
+                            }).frame(width: UIScreen.main.bounds.width)
+                        }.padding(.vertical)
                     }.background(Blur())
                     Spacer()
                 }
-            }.navigationTitle("Backtrack").edgesIgnoringSafeArea(.vertical)
+            }.edgesIgnoringSafeArea(.vertical)
         } else {
-            Text("Make sure you have data logged!").navigationTitle("Backtrack")
+            VStack{
+                HStack{
+                    Text("Backtrack")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .padding(.leading, 20.0)
+                        .padding(.top, 20.0)
+                    Text("Data")
+                        .font(.largeTitle)
+                        .fontWeight(.light)
+                        .padding(.top, 20.0)
+                    Spacer()
+                }.padding(.vertical, 20.0)
+                VStack{
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        Text(" Come back here once you've logged some location data!\n 🏃‍♀️💨").font(.title2).fontWeight(.heavy).foregroundColor(Color.gray).multilineTextAlignment(.center).padding(.horizontal, 40.0)
+                        Spacer()
+                    }
+                    Spacer()
+                }.background(Color(UIColor.black))
+            }.edgesIgnoringSafeArea(.top)
         }
     }
 
@@ -90,6 +124,12 @@ struct Blur: UIViewRepresentable {
     }
     func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
         uiView.effect = UIBlurEffect(style: style)
+    }
+}
+
+func openURL(_ sUrl: String) {
+    if let url = URL(string: "\(sUrl)"), !url.absoluteString.isEmpty {
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 

@@ -39,6 +39,8 @@ struct MapView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: MKMapView, context: Context) {
+        uiView.removeAnnotations(uiView.annotations)
+        
         let center = centerOfPoints
         dateFormatter.dateFormat = "M/dd h:mm a"
         

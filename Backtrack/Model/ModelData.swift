@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See LICENSE folder for licensing information.
 
 Abstract:
 Storage for model data.
@@ -29,15 +29,14 @@ final class ModelData: ObservableObject {
     
     private var locHelper: LocationHelper
     private var fh: URL? = nil
-    
+        
     @Published var data = [DataPoint(id: Date(), device:"Test", coordinates: DataPoint.Coordinates(latitude:42.175898, longitude: -72.509578))]
     @Published var dateBoundaries: ClosedRange<Date> = Date()...Date()
     @Published var ready: Bool = false
-    @Published var intervalReady: Bool = true
+    @Published var dataReady: Bool = true
     
     private var stringData: String = ""
-    private var startDate: Date? = nil
-    private var endDate: Date? = nil
+    private var targetDate: Date? = nil
     
     init(_ helper: LocationHelper){
         locHelper = helper
@@ -45,11 +44,10 @@ final class ModelData: ObservableObject {
         setDateBoundaries()
     }
     
-    public func setInterval(_ start: Date, _ end: Date){
-        self.intervalReady = false
-        self.startDate = Calendar.current.date(byAdding: .day, value: -1, to: start)!
-        self.endDate = Calendar.current.date(byAdding: .day, value: 1, to: end)!
-        self.getDataForInterval()
+    public func setDate(_ date: Date){
+        self.dataReady = false
+        self.targetDate = date
+        self.getDataForDate()
     }
     
     private func setDateBoundaries(){
@@ -88,10 +86,10 @@ final class ModelData: ObservableObject {
         self.ready = true
     }
     
-    public func getDataForInterval(){
+    public func getDataForDate(){
         self.data = [DataPoint]()
         
-        if(startDate == nil || fh == nil){
+        if(targetDate == nil || fh == nil){
             return
         }
         
@@ -104,32 +102,32 @@ final class ModelData: ObservableObject {
                 return
             }
         }
-        
+                
         //split that string into array of "rows" of data. Each row is a string.
         var rows = self.stringData.components(separatedBy: "\n")
         
         //remove header row
         rows.removeFirst()
         
-        //now loop around each row, and append to data based on whether it's in the interval
-        for row in rows {
+        //now loop around each row (from end to beginning), and append data based on whether it's on the target date
+        for row in rows.reversed() {
             let columns = row.components(separatedBy: ",")
             //check that there are enough columns
             if columns.count == 4 {
-                let date = getDate(columns[0])
-                if (date! < startDate!){ //don't append if before start date
-                    continue
+                let date = getDate(columns[0])!
+                if (date < targetDate!){
+                    break  //we've gone past the target data, stop iterating
                 }
-                if (date! > endDate!){ //don't append if after end date
-                    break
+                if (Calendar.current.compare(date, to: targetDate!, toGranularity: .day) != .orderedSame){
+                    continue  //don't append if not in target date
                 }
                 let coord = DataPoint.Coordinates(latitude: Double(columns[1]) ?? 0, longitude:Double(columns[2]) ?? 0)
                 let device = columns[3]
                 
-                self.data.append(DataPoint(id: date!, device: device, coordinates: coord))
+                self.data.append(DataPoint(id: date, device: device, coordinates: coord))
             }
         }
-        self.intervalReady = true
+        self.dataReady = true
     }
 }
 

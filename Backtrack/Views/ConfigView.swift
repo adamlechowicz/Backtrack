@@ -3,7 +3,6 @@
 //  Backtrack
 //
 //  Created by Adam Lechowicz on 7/4/21.
-//  Copyright © 2021 Apple. All rights reserved.
 //
 
 import SwiftUI

@@ -1,9 +1,8 @@
-////
+//
 //  ItemButtonStyle.swift
-//  UMass Architecture
+//  Backtrack
 //
 //  Created by Adam Lechowicz on 6/11/20.
-//  Copyright © 2020 Apple. All rights reserved.
 //
 
 import Foundation

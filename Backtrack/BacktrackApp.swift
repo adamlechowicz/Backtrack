@@ -1,25 +1,20 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See LICENSE folder for licensing information.
 
 Abstract:
-The top-level definition of the Landmarks app.
+The top-level definition of Backtrack.
 */
 
 import SwiftUI
 
 @main
 struct BacktrackApp: App {
-    @StateObject private var locHelper = LocationHelper()
-    private var modelData: ModelData?
+    private var locHelper = LocationHelper()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
-    init(){
-        self.modelData = ModelData(locHelper)
-    }
     
     var body: some Scene {
         WindowGroup {
-            AppView().environmentObject(locHelper).environmentObject(modelData!)
+            AppView().environmentObject(locHelper).environmentObject(ModelData(locHelper))
         }
     }
 }
