@@ -80,7 +80,9 @@ struct DataView: View {
                                     .padding(.leading, 20.0)
                                 Spacer()
                             }
-                            DatePicker(selection: $selectedDate, in: modelData.dateBoundaries, displayedComponents: .date) {}.labelsHidden().datePickerStyle(CompactDatePickerStyle()).onChange(of: selectedDate, perform: { value in
+                            DatePicker(selection: $selectedDate, in: modelData.dateBoundaries, displayedComponents: .date) {}.labelsHidden()
+                                .id(selectedDate)
+                                .onChange(of: selectedDate, perform: { value in
                                     self.modelData.setDate(selectedDate)
                             }).frame(width: UIScreen.main.bounds.width)
                         }.padding(.vertical)
