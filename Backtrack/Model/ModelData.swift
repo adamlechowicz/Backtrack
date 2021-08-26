@@ -34,6 +34,8 @@ final class ModelData: ObservableObject {
     @Published var dateBoundaries: ClosedRange<Date> = Date()...Date()
     @Published var ready: Bool = false
     @Published var dataReady: Bool = true
+    @Published var showSheet: Bool = true
+    @Published var sheetId: Int = 4
     
     private var stringData: String = ""
     private var targetDate: Date? = nil
@@ -128,6 +130,14 @@ final class ModelData: ObservableObject {
             }
         }
         self.dataReady = true
+    }
+    
+    public func setSheet(_ id: Int){
+        self.sheetId = id
+    }
+    
+    public func toggleSheet(){
+        self.showSheet = !self.showSheet
     }
 }
 

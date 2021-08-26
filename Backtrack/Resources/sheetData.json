@@ -1,0 +1,56 @@
+[
+    {
+        "title": "Welcome to Backtrack",
+        "imageNames": ["globeFrame3", "globeFrame4", "globeFrame5", "globeFrame6", "globeFrame7", "globeFrame8", "globeFrame9", "globeFrame10", "globeFrame11", "globeFrame12", "globeFrame13", "globeFrame14", "globeFrame15", "globeFrame16", "globeFrame17", "globeFrame18", "globeFrame19", "globeFrame20", "globeFrame21", "globeFrame22", "globeFrame23", "globeFrame24", "globeFrame25", "globeFrame26", "globeFrame27", "globeFrame28", "globeFrame29", "globeFrame30", "globeFrame31", "globeFrame32", "globeFrame33"],
+        "duration": 5.0,
+        "id": 0,
+        "nextId": 1,
+        "button": "Continue",
+        "body": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae. Sagittis lorem augue arcu blandit libero molestie non ullamcorper, finibus imperdiet iaculis ad quam per luctus neque, ligula curae mauris parturient diam auctor eleifend laoreet ridiculus, hendrerit adipiscing sociosqu pretium nec velit aliquam."
+    },
+    {
+        "title": "First Things First",
+        "imageNames": ["arrowFrame1"],
+        "duration": 5.0,
+        "id": 1,
+        "nextId": 2,
+        "button": "That's done",
+        "body": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae. Sagittis lorem augue arcu blandit libero molestie non ullamcorper, finibus imperdiet iaculis ad quam per luctus neque, ligula curae mauris parturient diam auctor eleifend laoreet ridiculus, hendrerit adipiscing sociosqu pretium nec velit aliquam."
+    },
+    {
+        "title": "Let's Get Started",
+        "imageNames": ["pinsFrame2", "pinsFrame2", "pinsFrame2", "pinsFrame3", "pinsFrame4", "pinsFrame5", "pinsFrame6", "pinsFrame7", "pinsFrame8", "pinsFrame9", "pinsFrame10", "pinsFrame11", "pinsFrame12", "pinsFrame13", "pinsFrame14", "pinsFrame15", "pinsFrame16", "pinsFrame17", "pinsFrame18", "pinsFrame18", "pinsFrame18"],
+        "duration": 4.0,
+        "id": 2,
+        "nextId": -1,
+        "button": "Get Backtracking!",
+        "body": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae. Sagittis lorem augue arcu blandit libero molestie non ullamcorper, finibus imperdiet iaculis ad quam per luctus neque, ligula curae mauris parturient diam auctor eleifend laoreet ridiculus, hendrerit adipiscing sociosqu pretium nec velit aliquam."
+    },
+    {
+        "title": "What is the Distance Filter?",
+        "imageNames": ["distanceFrame2", "distanceFrame3", "distanceFrame4"],
+        "duration": 3.0,
+        "id": 3,
+        "nextId": -1,
+        "button": "",
+        "body": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae. Sagittis lorem augue arcu blandit libero molestie non ullamcorper, finibus imperdiet iaculis ad quam per luctus neque, ligula curae mauris parturient diam auctor eleifend laoreet ridiculus, hendrerit adipiscing sociosqu pretium nec velit aliquam."
+    },
+    {
+        "title": "What is iCloud Drive?",
+        "imageNames": ["icloudFrame", "icloudFrame", "icloudFrame1", "icloudFrame2", "icloudFrame3", "icloudFrame4", "icloudFrame5", "icloudFrame6", "icloudFrame7", "icloudFrame8", "icloudFrame9", "icloudFrame10", "icloudFrame11", "icloudFrame11", "icloudFrame11", "icloudFrame11", "icloudFrame11", "icloudFrame11", "icloudFrame11"],
+        "duration": 2.0,
+        "id": 4,
+        "nextId": -1,
+        "button": "",
+        "body": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae. Sagittis lorem augue arcu blandit libero molestie non ullamcorper, finibus imperdiet iaculis ad quam per luctus neque, ligula curae mauris parturient diam auctor eleifend laoreet ridiculus, hendrerit adipiscing sociosqu pretium nec velit aliquam."
+    },
+    {
+        "title": "Backtrack",
+        "imageNames": ["globeFrame3"],
+        "duration": 5.0,
+        "id": 5,
+        "nextId": -1,
+        "button": "",
+        "body": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae. Sagittis lorem augue arcu blandit libero molestie non ullamcorper, finibus imperdiet iaculis ad quam per luctus neque, ligula curae mauris parturient diam auctor eleifend laoreet ridiculus, hendrerit adipiscing sociosqu pretium nec velit aliquam."
+    }
+]

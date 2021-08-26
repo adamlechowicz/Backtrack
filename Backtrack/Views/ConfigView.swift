@@ -12,9 +12,9 @@ struct ConfigView: View {
     @EnvironmentObject var locHelper: LocationHelper
     @Environment(\.colorScheme) var colorScheme
     @State var toggle_iCloudOn: Bool
+    @State var showSheet = true
     @State var filter_selection: Int
     
-    let screenWidth = UIScreen.main.bounds.size.width
     
     var body: some View {
         VStack{
@@ -88,7 +88,6 @@ struct ConfigView: View {
         }
     }
 }
-
 
 struct ConfigView_Previews: PreviewProvider {
     static var previews: some View {
