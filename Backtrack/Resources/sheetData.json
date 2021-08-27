@@ -5,8 +5,8 @@
         "duration": 5.0,
         "id": 0,
         "nextId": 1,
-        "button": "Continue",
-        "body": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae. Sagittis lorem augue arcu blandit libero molestie non ullamcorper, finibus imperdiet iaculis ad quam per luctus neque, ligula curae mauris parturient diam auctor eleifend laoreet ridiculus, hendrerit adipiscing sociosqu pretium nec velit aliquam."
+        "button": "Get Started",
+        "body": "Backtrack is a privacy-centric, open-source location logging solution that provides you with a history of location data for your device.  Backtrack provides an alternative to “Location History” features offered by many web mapping platforms, without selling your data or even sharing it with any third party.  Your data is your property, and Backtrack respects this by saving your collected data in spaces that you have full control over.  Pausing and resuming your location history is just one tap away, and you can view all of your collected data right in the app."
     },
     {
         "title": "First Things First",
@@ -14,8 +14,8 @@
         "duration": 5.0,
         "id": 1,
         "nextId": 2,
-        "button": "That's done",
-        "body": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae. Sagittis lorem augue arcu blandit libero molestie non ullamcorper, finibus imperdiet iaculis ad quam per luctus neque, ligula curae mauris parturient diam auctor eleifend laoreet ridiculus, hendrerit adipiscing sociosqu pretium nec velit aliquam."
+        "button": "Permissions All Set!",
+        "body": "First, let’s get your permissions set up.  Open the Settings app using the link below.  Scroll down to “Backtrack”.  Tap on “Location”.  Choose “Always” so that Backtrack can access your location in the background.  This data is never shared with any third party, including the app developer.  Once you finish setup, you’ll be able to choose whether this data gets logged on your device storage or your private iCloud Drive."
     },
     {
         "title": "Let's Get Started",
@@ -24,7 +24,7 @@
         "id": 2,
         "nextId": -1,
         "button": "Get Backtracking!",
-        "body": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae. Sagittis lorem augue arcu blandit libero molestie non ullamcorper, finibus imperdiet iaculis ad quam per luctus neque, ligula curae mauris parturient diam auctor eleifend laoreet ridiculus, hendrerit adipiscing sociosqu pretium nec velit aliquam."
+        "body": "All systems go!  Now that Backtrack is prepped, you’re ready to dial in your preferred settings and start logging your adventures.  Tap the “i” icon next to the options provided for more details about each parameter.  To start and stop location logging, simply tap the \"Backtrack\" button!  Your location data is directly saved to a file named “backtrack.csv” on either your device’s internal storage, or your private iCloud Drive."
     },
     {
         "title": "What is the Distance Filter?",
@@ -33,16 +33,16 @@
         "id": 3,
         "nextId": -1,
         "button": "",
-        "body": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae. Sagittis lorem augue arcu blandit libero molestie non ullamcorper, finibus imperdiet iaculis ad quam per luctus neque, ligula curae mauris parturient diam auctor eleifend laoreet ridiculus, hendrerit adipiscing sociosqu pretium nec velit aliquam."
+        "body": "Adjusting this option changes how far your device has to travel before iOS will deliver a new location to Backtrack.  For example, if your device is traveling with a distance filter of 200m, Backtrack will receive and log GPS coordinates that are 200m apart.  Set this value to be smaller for greater precision, and larger for more coarse-grained tracking, and lower battery usage."
     },
     {
-        "title": "What is iCloud Drive?",
+        "title": "What is iCloud Drive Logging?",
         "imageNames": ["icloudFrame", "icloudFrame", "icloudFrame1", "icloudFrame2", "icloudFrame3", "icloudFrame4", "icloudFrame5", "icloudFrame6", "icloudFrame7", "icloudFrame8", "icloudFrame9", "icloudFrame10", "icloudFrame11", "icloudFrame11", "icloudFrame11", "icloudFrame11", "icloudFrame11", "icloudFrame11", "icloudFrame11"],
         "duration": 2.0,
         "id": 4,
         "nextId": -1,
         "button": "",
-        "body": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae. Sagittis lorem augue arcu blandit libero molestie non ullamcorper, finibus imperdiet iaculis ad quam per luctus neque, ligula curae mauris parturient diam auctor eleifend laoreet ridiculus, hendrerit adipiscing sociosqu pretium nec velit aliquam."
+        "body": "If you’re signed into iCloud on this device, turning this option ON will log your data to a file named “backtrack.csv” in your private iCloud Drive.  This data is not shared with any third party, and only accessible through your personal Apple ID.  If this option is OFF, Backtrack will log your data to a file named “backtrack.csv” on your device’s physical, local storage."
     },
     {
         "title": "Backtrack",
