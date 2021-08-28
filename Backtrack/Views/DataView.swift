@@ -86,10 +86,10 @@ struct DataView: View {
                                     self.modelData.setDate(selectedDate)
                             }).frame(width: UIScreen.main.bounds.width)
                         }.padding(.vertical)
-                    }.background(Blur())
+                    }.background(Blur().edgesIgnoringSafeArea(.top))
                     Spacer()
                 }
-            }.edgesIgnoringSafeArea(.vertical)
+            }.edgesIgnoringSafeArea(.bottom)
         } else {
             VStack{
                 HStack{
@@ -113,7 +113,7 @@ struct DataView: View {
                     }
                     Spacer()
                 }.background(Color(UIColor.black))
-            }.edgesIgnoringSafeArea(.top)
+            }
         }
     }
 

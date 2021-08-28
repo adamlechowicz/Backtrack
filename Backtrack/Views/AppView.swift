@@ -14,7 +14,7 @@ struct AppView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            ConfigView(toggle_iCloudOn: self.locHelper.iCloudActive, filter_selection: self.locHelper.distanceFilterVal)
+            ConfigView(toggle_iCloudOn: self.locHelper.iCloudActive, filter_selection: self.locHelper.distanceFilterVal, toggle_BacktrackOn: self.locHelper.active)
                 .tabItem {
                     Image(systemName: "gearshape.2.fill")
                     Text("Config")
@@ -109,7 +109,7 @@ struct sheetView: View{
         self.sheet = sheet
     }
     
-    struct mapAnimation: UIViewRepresentable {
+    struct topAnimation: UIViewRepresentable {
 
         var vWidth : CGFloat
         var vHeight : CGFloat
@@ -133,34 +133,36 @@ struct sheetView: View{
             return someView
           }
 
-        func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<mapAnimation>) {}
+        func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<topAnimation>) {}
     }
     
     var body: some View{
         VStack{
-            Text(sheet.title).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).bold().padding(.all)
-            mapAnimation(vWidth: screenWidth-40.0, vHeight: (screenWidth-40.0)/3, animatedImage: self.animatedImage).padding(.leading, 20.0).frame(width: screenWidth, height: (screenWidth)/3)
-            Text(sheet.body).padding(.horizontal, 25.0)
-            if(sheet.button != ""){
-                Button(action:{
-                    //do something
-                        }){
-                    HStack {
-                        Text(sheet.button).foregroundColor(.white)
-                    }
-                        .padding(.horizontal, 40.0)
-                        .padding(.vertical, 15.0)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .font(.headline)
-                        .cornerRadius(17.0)
-                }.buttonStyle(SimpleButtonStyle())
-                .padding(.all)
-                .padding(.bottom)
-            } else {
-                EmptyView()
+            Text(sheet.title).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).bold().padding(.top, screenHeight > 600 ? 18.0 : 7.0).padding(.horizontal)
+            ScrollView{
+                topAnimation(vWidth: screenWidth-40.0, vHeight: (screenWidth-40.0)/3, animatedImage: self.animatedImage).padding(.leading, 20.0).frame(width: screenWidth, height: (screenWidth)/3)
+                Text(sheet.body).padding(.horizontal, 25.0)
+                if(sheet.button != ""){
+                    Button(action:{
+                        //do something
+                            }){
+                        HStack {
+                            Text(sheet.button).foregroundColor(.white)
+                        }
+                            .padding(.horizontal, 40.0)
+                            .padding(.vertical, 15.0)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .font(.headline)
+                            .cornerRadius(17.0)
+                    }.buttonStyle(SimpleButtonStyle())
+                    .padding(.all)
+                    .padding(.bottom)
+                } else {
+                    EmptyView()
+                }
+                Text("").padding(.bottom, 80.0)
             }
-            Spacer()
         }
     }
 }

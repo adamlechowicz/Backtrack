@@ -6,7 +6,7 @@
         "id": 0,
         "nextId": 1,
         "button": "Get Started",
-        "body": "Backtrack is a privacy-centric, open-source location logging solution that provides you with a history of location data for your device.  Backtrack provides an alternative to “Location History” features offered by many web mapping platforms, without selling your data or even sharing it with any third party.  Your data is your property, and Backtrack respects this by saving your collected data in spaces that you have full control over.  Pausing and resuming your location history is just one tap away, and you can view all of your collected data right in the app."
+        "body": "Backtrack is a privacy-centric, open-source location logging solution that provides you with a history of location data for your device.  Backtrack provides an alternative to “Location History” features offered by many web mapping platforms, without selling your data or even sharing it with any third party.  Pausing and resuming your location history is just one tap away, and you can view all of your collected data right in the app."
     },
     {
         "title": "First Things First",
@@ -24,7 +24,7 @@
         "id": 2,
         "nextId": -1,
         "button": "Get Backtracking!",
-        "body": "All systems go!  Now that Backtrack is prepped, you’re ready to dial in your preferred settings and start logging your adventures.  Tap the “i” icon next to the options provided for more details about each parameter.  To start and stop location logging, simply tap the \"Backtrack\" button!  Your location data is directly saved to a file named “backtrack.csv” on either your device’s internal storage, or your private iCloud Drive."
+        "body": "Now that Backtrack is ready, you can dial in your preferred settings and start logging your adventures.  Tap the “i” icons for more details about each option.  To start/pause location logging, simply tap the \"Backtracking\" button!  Your location data is directly saved to a file named “backtrack.csv” in your device’s storage, or your private iCloud Drive."
     },
     {
         "title": "What is the Distance Filter?",
