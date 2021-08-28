@@ -65,7 +65,6 @@
 		66D28F8526D728C300441275 /* example.heic */ = {isa = PBXFileReference; lastKnownFileType = file; path = example.heic; sourceTree = "<group>"; };
 		66E1BB5B2675CBA5008D88C8 /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		6AF17FBC250C47AD4B5BC2FB /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
-		8016A7122042026B58FF1299 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C20D77EA24B665D7002E7AEA /* Backtrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backtrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20D77ED24B665D7002E7AEA /* BacktrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacktrackApp.swift; sourceTree = "<group>"; };
 		C20D77F124B665D8002E7AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,7 +129,6 @@
 				C20D77EC24B665D7002E7AEA /* Backtrack */,
 				C20D77EB24B665D7002E7AEA /* Products */,
 				00ABA66E85532B385D477CBF /* Configuration */,
-				E573155042573F7430EB4C1C /* LICENSE */,
 				66A75F1A268FE28300F5A2CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -215,14 +213,6 @@
 				C2C583BE24DB80C300DD0019 /* Helpers */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		E573155042573F7430EB4C1C /* LICENSE */ = {
-			isa = PBXGroup;
-			children = (
-				8016A7122042026B58FF1299 /* LICENSE.txt */,
-			);
-			path = LICENSE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
