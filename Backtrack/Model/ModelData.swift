@@ -35,7 +35,7 @@ final class ModelData: ObservableObject {
     @Published var ready: Bool = false
     @Published var dataReady: Bool = true
     @Published var showSheet: Bool = true
-    @Published var sheetId: Int = 4
+    @Published var sheetId: Int = 0
     
     private var stringData: String = ""
     private var targetDate: Date? = nil

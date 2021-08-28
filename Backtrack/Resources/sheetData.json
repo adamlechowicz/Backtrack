@@ -1,12 +1,12 @@
 [
     {
         "title": "Welcome to Backtrack",
-        "imageNames": ["globeFrame3", "globeFrame4", "globeFrame5", "globeFrame6", "globeFrame7", "globeFrame8", "globeFrame9", "globeFrame10", "globeFrame11", "globeFrame12", "globeFrame13", "globeFrame14", "globeFrame15", "globeFrame16", "globeFrame17", "globeFrame18", "globeFrame19", "globeFrame20", "globeFrame21", "globeFrame22", "globeFrame23", "globeFrame24", "globeFrame25", "globeFrame26", "globeFrame27", "globeFrame28", "globeFrame29", "globeFrame30", "globeFrame31", "globeFrame32", "globeFrame33"],
+        "imageNames": ["globeFrame"],
         "duration": 5.0,
         "id": 0,
         "nextId": 1,
         "button": "Get Started",
-        "body": "Backtrack is a privacy-centric, open-source location logging solution that provides you with a history of location data for your device.  Backtrack provides an alternative to “Location History” features offered by many web mapping platforms, without selling your data or even sharing it with any third party.  Pausing and resuming your location history is just one tap away, and you can view all of your collected data right in the app."
+        "body": "Backtrack is a privacy-centric, open-source location logging solution that compiles a history of location data for your device.  Backtrack provides an alternative to “Location History” features offered by many web mapping platforms, without selling your data or even sharing it with any third party.  Pausing and resuming your location history is just one tap away, and you can view all of your collected data right in the app."
     },
     {
         "title": "First Things First",
@@ -46,7 +46,7 @@
     },
     {
         "title": "Backtrack",
-        "imageNames": ["globeFrame3"],
+        "imageNames": ["globeFrame"],
         "duration": 5.0,
         "id": 5,
         "nextId": -1,

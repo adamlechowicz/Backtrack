@@ -20,6 +20,8 @@
 		66B93220269E8F4600BE1B82 /* Green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B9321D269E8F4600BE1B82 /* Green@2x.png */; };
 		66B93221269E8F4600BE1B82 /* Green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B9321E269E8F4600BE1B82 /* Green@3x.png */; };
 		66B93223269E8FD000BE1B82 /* IconNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B93222269E8FD000BE1B82 /* IconNames.swift */; };
+		66C7CC6126DAB468005DA29C /* AcknowledgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C7CC6026DAB468005DA29C /* AcknowledgeView.swift */; };
+		66C7CC6326DAB4C8005DA29C /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C7CC6226DAB4C8005DA29C /* SheetView.swift */; };
 		66D28F7E26D34F4E00441275 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D28F7C26D34F4E00441275 /* DataView.swift */; };
 		66D28F7F26D34F4E00441275 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D28F7D26D34F4E00441275 /* ConfigView.swift */; };
 		66D28F8126D722D400441275 /* Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D28F8026D722D400441275 /* Sheet.swift */; };
@@ -54,6 +56,8 @@
 		66B9321D269E8F4600BE1B82 /* Green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@2x.png"; sourceTree = "<group>"; };
 		66B9321E269E8F4600BE1B82 /* Green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@3x.png"; sourceTree = "<group>"; };
 		66B93222269E8FD000BE1B82 /* IconNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNames.swift; sourceTree = "<group>"; };
+		66C7CC6026DAB468005DA29C /* AcknowledgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgeView.swift; sourceTree = "<group>"; };
+		66C7CC6226DAB4C8005DA29C /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		66D28F7C26D34F4E00441275 /* DataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		66D28F7D26D34F4E00441275 /* ConfigView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		66D28F8026D722D400441275 /* Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheet.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				66D28F7D26D34F4E00441275 /* ConfigView.swift */,
 				66D28F7C26D34F4E00441275 /* DataView.swift */,
 				66E1BB5B2675CBA5008D88C8 /* AppView.swift */,
+				66C7CC6226DAB4C8005DA29C /* SheetView.swift */,
+				66C7CC6026DAB468005DA29C /* AcknowledgeView.swift */,
 				C2C583BC24DB807000DD0019 /* ContentView.swift */,
 				C2C583BE24DB80C300DD0019 /* Helpers */,
 			);
@@ -303,10 +309,12 @@
 				66A75F18268FE02300F5A2CC /* LocationHelper.swift in Sources */,
 				C20D780524B684EC002E7AEA /* ModelData.swift in Sources */,
 				C20D77FF24B67FB3002E7AEA /* MapView.swift in Sources */,
+				66C7CC6126DAB468005DA29C /* AcknowledgeView.swift in Sources */,
 				6692EC772692942700E6053B /* Delegate.swift in Sources */,
 				66B93223269E8FD000BE1B82 /* IconNames.swift in Sources */,
 				66D28F7F26D34F4E00441275 /* ConfigView.swift in Sources */,
 				66E1BB5C2675CBA5008D88C8 /* AppView.swift in Sources */,
+				66C7CC6326DAB4C8005DA29C /* SheetView.swift in Sources */,
 				6617F1CE26B3A86A009121A5 /* MKiCloudSync.m in Sources */,
 				C20D77EE24B665D7002E7AEA /* BacktrackApp.swift in Sources */,
 				C2C583BD24DB807000DD0019 /* ContentView.swift in Sources */,
@@ -447,7 +455,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Backtrack/Backtrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8.26.2021;
+				CURRENT_PROJECT_VERSION = 8.26.21;
 				DEVELOPMENT_ASSET_PATHS = "\"Backtrack/Preview Content\"";
 				DEVELOPMENT_TEAM = FSMP3T4UP6;
 				ENABLE_PREVIEWS = YES;
@@ -477,7 +485,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Backtrack/Backtrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8.26.2021;
+				CURRENT_PROJECT_VERSION = 8.26.21;
 				DEVELOPMENT_ASSET_PATHS = "\"Backtrack/Preview Content\"";
 				DEVELOPMENT_TEAM = FSMP3T4UP6;
 				ENABLE_PREVIEWS = YES;
