@@ -94,7 +94,7 @@ struct acknowledgeView: View{
             }
             VStack{
                 Divider()
-                Button (action: {openURL("https://drive.google.com/file/d/1NfjuFBOOQwoXSBjXEOhr0fHBuzaq-RAp/view?usp=sharing")}) {
+                Button (action: {openURL("https://github.com/adamlechowicz/Backtrack/blob/main/LICENSE")}) {
                     VStack{
                         HStack{
                             Image(systemName: "doc.text.fill")
@@ -187,7 +187,7 @@ struct acknowledgeView: View{
                     Spacer()
                 }
                 Spacer()
-                Text("© 2021 Adam Lechowicz.\nReleased under MIT License.")
+                Text("© 2021 Adam Lechowicz\nReleased under MIT License.")
                     .font(.subheadline)
                     .italic()
                     .multilineTextAlignment(.center)

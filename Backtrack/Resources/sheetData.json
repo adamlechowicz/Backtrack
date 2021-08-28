@@ -15,7 +15,7 @@
         "id": 1,
         "nextId": 2,
         "button": "Permissions All Set!",
-        "body": "First, let’s get your permissions set up.  Open the Settings app using the link below.  Scroll down to “Backtrack”.  Tap on “Location”.  Choose “Always” so that Backtrack can access your location in the background.  This data is never shared with any third party, including the app developer.  Once you finish setup, you’ll be able to choose whether this data gets logged on your device storage or your private iCloud Drive."
+        "body": "Your location data is never shared with any third party, including the app developer.  Once you finish setup, you’ll be able to choose whether this data gets logged in device storage or your private iCloud Drive."
     },
     {
         "title": "Let's Get Started",

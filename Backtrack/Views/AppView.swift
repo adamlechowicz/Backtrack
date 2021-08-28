@@ -11,8 +11,6 @@ struct AppView: View {
     @State private var selection = 1
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var locHelper: LocationHelper
-    @State var insertEdge: Edge = .bottom
-    @State var removeEdge: Edge = .bottom
     
     var body: some View {
         TabView(selection: $selection) {
@@ -64,8 +62,7 @@ struct AppView: View {
                             if(modelData.sheetId == 5){
                                 acknowledgeView()
                             } else if (modelData.sheetId == 1) {
-                                //setupView()
-                                sheetView(sheetData[modelData.sheetId]).transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                                locationSetupView(sheetData[modelData.sheetId]).transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
                                 Button(action:{
                                     modelData.setSheet(sheetData[modelData.sheetId].nextId)
                                     modelData.toggleSheet()

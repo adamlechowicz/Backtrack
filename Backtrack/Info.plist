@@ -76,11 +76,11 @@
 		<string>MKDirectionsModePedestrian</string>
 	</array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
+	<string>Backtrack uses your location to log your adventures in the background.  Your location data is logged locally on your device, or, if you choose, directly to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at github.com/adamlechowicz/Backtrack.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
+	<string>Backtrack uses your location to log your adventures in the background.  Your location data is logged locally on your device, or, if you choose, directly to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at github.com/adamlechowicz/Backtrack.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Backtrack uses your location to quietly log your adventures in the background.  Your location data is logged locally on your device, and, if you choose, uploaded to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at [URL]</string>
+	<string>Backtrack uses your location to log your adventures in the background.  Your location data is logged locally on your device, or, if you choose, directly to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at github.com/adamlechowicz/Backtrack.</string>
 	<key>NSUbiquitousContainers</key>
 	<dict>
 		<key>iCloud.com.adamlechowicz.Backtrack</key>

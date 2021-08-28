@@ -102,7 +102,6 @@ struct ConfigView: View {
                 Spacer()
             }.padding(.horizontal)
             Button(action:{
-                self.locHelper.doSomethingStupid()
                 self.locHelper.toggle()
                 self.toggle_BacktrackOn = !self.toggle_BacktrackOn
                     }){

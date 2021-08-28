@@ -15,12 +15,14 @@ class LocationHelper: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     private let userDefaults = UserDefaults.standard
     private var lastLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+    
     @Published var authorisationStatus: CLAuthorizationStatus = .notDetermined
     @Published var active: Bool = false
     @Published var iCloudAvail: Bool = false
     @Published var iCloudActive: Bool = true
     @Published var currentDevice: String = ""
     @Published var distanceFilterVal: Int = 200
+    @Published var initialSetup: Bool = false
     
     private var fh: URL? = nil
 
@@ -31,11 +33,12 @@ class LocationHelper: NSObject, ObservableObject {
         self.locationManager.pausesLocationUpdatesAutomatically = false
         
         // get User Settings from local account, which will be synced with iCloud
-        if userDefaults.value(forKey: "sync") == nil { // set default values at first launch
+        if userDefaults.value(forKey: "sync") == nil { // set default values at first launch, trigger initial setup
             userDefaults.set("Backtrack", forKey: "sync")
             userDefaults.set(200, forKey: "syncDistanceFilter")
             userDefaults.set(false, forKey: "syncActive")
             userDefaults.set(true, forKey: "synciCloudActive")
+            self.initialSetup = true
         }
         
         self.iCloudActive = userDefaults.bool(forKey: "synciCloudActive")
@@ -142,10 +145,6 @@ class LocationHelper: NSObject, ObservableObject {
         } else {
             self.locationManager.requestWhenInUseAuthorization()
         }
-    }
-    
-    public func doSomethingStupid(){
-        NSLog("Something Stupid!")
     }
     
     public func getFileURL() -> URL{

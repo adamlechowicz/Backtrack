@@ -30,20 +30,24 @@ final class ModelData: ObservableObject {
     private var locHelper: LocationHelper
     private var fh: URL? = nil
         
-    @Published var data = [DataPoint(id: Date(), device:"Test", coordinates: DataPoint.Coordinates(latitude:42.175898, longitude: -72.509578))]
+    @Published var data = [DataPoint]()
     @Published var dateBoundaries: ClosedRange<Date> = Date()...Date()
     @Published var ready: Bool = false
     @Published var dataReady: Bool = true
-    @Published var showSheet: Bool = true
+    
+    @Published var showSheet: Bool = false
     @Published var sheetId: Int = 0
     
-    private var stringData: String = ""
     private var targetDate: Date? = nil
     
     init(_ helper: LocationHelper){
         locHelper = helper
         fh = locHelper.getFileURL()
         setDateBoundaries()
+        if(self.locHelper.initialSetup){
+            self.sheetId = 0
+            self.showSheet = true
+        }
     }
     
     public func setDate(_ date: Date){
@@ -56,17 +60,17 @@ final class ModelData: ObservableObject {
         if(fh == nil){
             return
         }
-        if(stringData == ""){
-            //convert into one long string
-            do {
-                self.stringData = try String(contentsOfFile: fh!.path)
-            } catch {
-                print(error)
-                return
-            }
+        //convert into one long string
+        var stringData: String
+        
+        do {
+            stringData = try String(contentsOfFile: fh!.path)
+        } catch {
+            print(error)
+            return
         }
         //split string into array of "rows" of data. Each row is a string.
-        var rows = self.stringData.components(separatedBy: "\n")
+        var rows = stringData.components(separatedBy: "\n")
         //remove header row
         rows.removeFirst()
         
@@ -95,21 +99,23 @@ final class ModelData: ObservableObject {
             return
         }
         
-        if(stringData == ""){
-            //convert into one long string
-            do {
-                self.stringData = try String(contentsOfFile: fh!.path)
-            } catch {
-                print(error)
-                return
-            }
+        //convert into one long string
+        var stringData: String
+        
+        do {
+            stringData = try String(contentsOfFile: fh!.path)
+        } catch {
+            print(error)
+            return
         }
                 
         //split that string into array of "rows" of data. Each row is a string.
-        var rows = self.stringData.components(separatedBy: "\n")
+        var rows = stringData.components(separatedBy: "\n")
         
         //remove header row
         rows.removeFirst()
+        
+        let limiterDate = Calendar.current.date(byAdding: .day, value: -1, to: targetDate!)
         
         //now loop around each row (from end to beginning), and append data based on whether it's on the target date
         for row in rows.reversed() {
@@ -117,7 +123,7 @@ final class ModelData: ObservableObject {
             //check that there are enough columns
             if columns.count == 4 {
                 let date = getDate(columns[0])!
-                if (date < targetDate!){
+                if (date < limiterDate!){
                     break  //we've gone past the target data, stop iterating
                 }
                 if (Calendar.current.compare(date, to: targetDate!, toGranularity: .day) != .orderedSame){
@@ -148,26 +154,4 @@ func getDate(_ dateString: String) -> Date? {
     dateFormatter.locale = Locale.current
     return dateFormatter.date(from: dateString)
 }
-
-//func load<T: Decodable>(_ filename: String) -> T {
-//    let data: Data
-//
-//    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-//        else {
-//            fatalError("Couldn't find \(filename) in main bundle.")
-//    }
-//
-//    do {
-//        data = try Data(contentsOf: file)
-//    } catch {
-//        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-//    }
-//
-//    do {
-//        let decoder = JSONDecoder()
-//        return try decoder.decode(T.self, from: data)
-//    } catch {
-//        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
-//    }
-//}
 

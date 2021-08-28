@@ -22,6 +22,33 @@ struct overlayRect: View{
     }
 }
 
+struct topAnimation: UIViewRepresentable {
+
+    var vWidth : CGFloat
+    var vHeight : CGFloat
+    var animatedImage : UIImage
+    
+    func makeUIView(context: Self.Context) -> UIView {
+        let someView = UIView(frame: CGRect(x: 0, y: 0
+        , width: UIScreen.main.bounds.size.width, height: vHeight))
+        
+        let rect = CGRect(x: 0, y: 0, width: vWidth, height: vHeight)
+        let someImage = UIImageView(frame: rect)
+        someImage.clipsToBounds = true
+        someImage.layer.cornerRadius = 20
+        someImage.autoresizesSubviews = true
+        someImage.contentMode = UIView.ContentMode.scaleAspectFill
+
+        someImage.image = animatedImage
+
+        someView.addSubview(someImage)
+
+        return someView
+      }
+
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<topAnimation>) {}
+}
+
 struct sheetView: View{
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
@@ -44,39 +71,94 @@ struct sheetView: View{
         self.sheet = sheet
     }
     
-    struct topAnimation: UIViewRepresentable {
-
-        var vWidth : CGFloat
-        var vHeight : CGFloat
-        var animatedImage : UIImage
-        
-        func makeUIView(context: Self.Context) -> UIView {
-            let someView = UIView(frame: CGRect(x: 0, y: 0
-            , width: UIScreen.main.bounds.size.width, height: vHeight))
-            
-            let rect = CGRect(x: 0, y: 0, width: vWidth, height: vHeight)
-            let someImage = UIImageView(frame: rect)
-            someImage.clipsToBounds = true
-            someImage.layer.cornerRadius = 20
-            someImage.autoresizesSubviews = true
-            someImage.contentMode = UIView.ContentMode.scaleAspectFill
-
-            someImage.image = animatedImage
-
-            someView.addSubview(someImage)
-
-            return someView
-          }
-
-        func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<topAnimation>) {}
-    }
-    
     var body: some View{
         VStack{
             Text(sheet.title).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).bold().padding(.top, screenHeight > 600 ? 18.0 : 7.0).padding(.horizontal)
             ScrollView{
                 topAnimation(vWidth: screenWidth-40.0, vHeight: (screenWidth-40.0)/3, animatedImage: self.animatedImage).padding(.leading, 20.0).frame(width: screenWidth, height: (screenWidth)/3)
                 Text(sheet.body).padding(.horizontal, 25.0)
+            }
+        }
+    }
+}
+
+struct locationSetupView: View{
+    let screenWidth = UIScreen.main.bounds.size.width
+    let screenHeight = UIScreen.main.bounds.size.height
+    
+    var sheet: Sheet
+    
+    init(_ sheet: Sheet){
+        self.sheet = sheet
+    }
+    
+    var body: some View{
+        VStack{
+            Text(sheet.title).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).bold().padding(.top, screenHeight > 600 ? 18.0 : 7.0).padding(.horizontal)
+            ScrollView{
+                topAnimation(vWidth: screenWidth-40.0, vHeight: (screenWidth-40.0)/3, animatedImage: UIImage(named: "arrowFrame1")!).padding(.leading, 20.0).frame(width: screenWidth, height: (screenWidth)/3)
+                VStack{
+                    Text("First, let’s get your permissions set up.")
+                    Divider()
+                    Button (action: {openURL(UIApplication.openSettingsURLString)}) {
+                        VStack{
+                            HStack{
+                                Image(systemName: "1.circle.fill")
+                                    .font(.title3).frame(width: 30)
+                                Image(systemName: "gear")
+                                    .font(.title3).padding(.leading, 2.0).foregroundColor(.gray)
+                                Text("Settings")
+                                    .font(.headline)
+                                Image(systemName: "arrowshape.bounce.right")
+                                    .font(.headline)
+                                if (screenHeight > 600){
+                                    Image("AcknowledgeIcon")
+                                        .resizable()
+                                        .frame(width: 28, height: 28)
+                                        .cornerRadius(7.0)
+                                }
+                                Text("Backtrack")
+                                    .font(.headline)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.headline)
+                            }.padding(.bottom, 1.0)
+                        }.padding(.vertical, 5.0)
+                        //.background(Color.gray)
+                        .foregroundColor(.blue)
+                    }
+                    Divider()
+                    VStack{
+                        HStack{
+                            Image(systemName: "2.circle.fill")
+                                .font(.title3).frame(width: 30)
+                            Text("Change ")
+                                .font(.headline)
+                                .multilineTextAlignment(.leading)
+                                .padding(.leading, 5.0)
+                                .fixedSize(horizontal: false, vertical: true)
+                            HStack{
+                                if (screenHeight > 600){
+                                    ZStack{
+                                        Image(systemName: "location.fill")
+                                            .resizable()
+                                            .frame(width: 15, height: 15)
+                                            .foregroundColor(.white)
+                                    }.frame(width: 28, height: 28).background(Color.blue).cornerRadius(8.0).padding(.leading, 2.0)
+                                }
+                                Text("Location").padding(.vertical, 8.0).padding(.leading, 2.0)
+                                Spacer()
+                                Text("Always").bold().padding(.vertical, 8.0).foregroundColor(.blue)
+                                Image(systemName: "chevron.right")
+                                    .font(.headline).foregroundColor(.gray)
+                                    .padding(.trailing, 2.0)
+                            }.background(Color(UIColor.systemGroupedBackground)).cornerRadius(12.0)
+                            Spacer()
+                        }.padding(.bottom, 1.0)
+                    }
+                    Divider()
+                    Text(sheet.body).padding(.bottom)
+                }.padding(.horizontal, screenHeight > 600 ? 25.0 : 15.0)
             }
         }
     }
