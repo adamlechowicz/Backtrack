@@ -1,7 +1,5 @@
 /*
 See LICENSE folder for licensing information.
-
-Abstract:
 Storage for model data.
 */
 
