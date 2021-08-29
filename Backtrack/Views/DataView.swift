@@ -1,8 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-A view showing a list of landmarks.
+See LICENSE for this file's licensing information.
 */
 
 import SwiftUI
@@ -11,22 +8,17 @@ struct DataView: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var locHelper: LocationHelper
     
-    @State private var intervalSet = false
-    @State private var selectedDate = Date()
-    
-    let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        return formatter
-    }()
+    @State private var selectedDate = Date() //UI state var, initialize to the current date
     
     var body: some View {
         if(modelData.ready){
-            ZStack{
+            ZStack{ //ZStack means the first item is at the bottom of the stack
                 VStack{
                     if(modelData.data.count > 0 && modelData.dataReady){
+                        //if everything checks out, show the map
                         MapView(points: modelData.data).environmentObject(modelData)
                     } else if (modelData.dataReady){
+                        //if data is ready but size = 0, no data is available for this date.
                         VStack{
                             Spacer()
                             HStack{
@@ -37,6 +29,7 @@ struct DataView: View {
                             Spacer()
                         }.background(Color(UIColor.systemGroupedBackground))
                     } else {
+                        //if data isn't ready yet, show loading text
                         VStack{
                             Spacer()
                             HStack{
@@ -48,7 +41,7 @@ struct DataView: View {
                         }.background(Color(UIColor.systemGroupedBackground))
                     }
                 }
-                VStack{
+                VStack{ //Data controls (overlaid on top of the map)
                     VStack{
                         HStack{
                             Text("Backtrack")
@@ -64,7 +57,7 @@ struct DataView: View {
                             Button(action:{
                                 let path = locHelper.getFileURL().absoluteString.replacingOccurrences(of: "file://", with: "shareddocuments://").replacingOccurrences(of: "/backtrack.csv", with: "")
                                 let url = URL(string: path)!
-                                UIApplication.shared.open(url)
+                                UIApplication.shared.open(url) //Open Files app and show backtrack.csv
                             }){
                                 Image(systemName: "square.and.arrow.down.fill")
                                     .padding(.horizontal, 20.0)
@@ -83,6 +76,7 @@ struct DataView: View {
                             DatePicker(selection: $selectedDate, in: modelData.dateBoundaries, displayedComponents: .date) {}.labelsHidden()
                                 .id(selectedDate)
                                 .onChange(of: selectedDate, perform: { value in
+                                    //when Date changes, tell ModelData to fetch new values
                                     self.modelData.setDate(selectedDate)
                             }).frame(width: UIScreen.main.bounds.width)
                         }.padding(.vertical)
@@ -90,7 +84,7 @@ struct DataView: View {
                     Spacer()
                 }
             }.edgesIgnoringSafeArea(.bottom)
-        } else {
+        } else { //if ModelData isn't ready, there's probably no CSV file in the app directory
             VStack{
                 HStack{
                     Text("Backtrack")
@@ -116,10 +110,9 @@ struct DataView: View {
             }
         }
     }
-
 }
 
-struct Blur: UIViewRepresentable {
+struct Blur: UIViewRepresentable {  //transparent blur texture for SwiftUI
     var style: UIBlurEffect.Style = .systemMaterial
     func makeUIView(context: Context) -> UIVisualEffectView {
         return UIVisualEffectView(effect: UIBlurEffect(style: style))
@@ -129,7 +122,7 @@ struct Blur: UIViewRepresentable {
     }
 }
 
-func openURL(_ sUrl: String) {
+func openURL(_ sUrl: String) {  //function to open any URL
     if let url = URL(string: "\(sUrl)"), !url.absoluteString.isEmpty {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }

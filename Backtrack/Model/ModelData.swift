@@ -1,12 +1,14 @@
 /*
-See LICENSE folder for licensing information.
-Storage for model data.
+See LICENSE for licensing information.
+ 
+Storage and helper for model data, loading from CSV, and current informational sheet
 */
 
 import Foundation
 import Combine
 import CoreLocation
 
+//Definition of a location data point
 struct DataPoint: Identifiable {
     var id: Date
     var device: String
@@ -16,7 +18,6 @@ struct DataPoint: Identifiable {
             latitude: coordinates.latitude,
             longitude: coordinates.longitude)
     }
-
     struct Coordinates: Hashable, Codable {
         var latitude: Double
         var longitude: Double
@@ -28,20 +29,29 @@ final class ModelData: ObservableObject {
     private var locHelper: LocationHelper
     private var fh: URL? = nil
         
+    //location data vars
+        //current data for selected date (initialized to be empty)
     @Published var data = [DataPoint]()
+        //encode boundaries of saved data
     @Published var dateBoundaries: ClosedRange<Date> = Date()...Date()
-    @Published var ready: Bool = false
+        //this is false until we verify there is data logged in the selected location
+    @Published var ready: Bool = false //
+        //we flip this boolean value back and forth based on whether the selected data is ready
     @Published var dataReady: Bool = true
     
+    //informational sheet vars
     @Published var showSheet: Bool = false
     @Published var sheetId: Int = 0
     
+    //targetDate is the date for which we want to visualize data
     private var targetDate: Date? = nil
     
     init(_ helper: LocationHelper){
         locHelper = helper
-        fh = locHelper.getFileURL()
-        setDateBoundaries()
+        fh = locHelper.getFileURL() //get file handle for "backtrack.csv" file
+        setDateBoundaries() //set the boundaries for begin and end date from the data in the file
+        
+        //if initial setup is true, show the first informational sheet for the setup screens
         if(self.locHelper.initialSetup){
             self.sheetId = 0
             self.showSheet = true
@@ -50,7 +60,7 @@ final class ModelData: ObservableObject {
     
     public func setDate(_ date: Date){
         self.dataReady = false
-        self.targetDate = date
+        self.targetDate = date  //set the target date
         self.getDataForDate()
     }
     
@@ -58,7 +68,7 @@ final class ModelData: ObservableObject {
         if(fh == nil){
             return
         }
-        //convert into one long string
+        //convert file into one long string
         var stringData: String
         
         do {
@@ -73,7 +83,7 @@ final class ModelData: ObservableObject {
         rows.removeFirst()
         
         //get lower boundary
-        let first = rows[0]
+        let first = rows[0]  //lower boundary is the first data point
         var columns = first.components(separatedBy: ",")
         let lowerBound = getDate(columns[0]) ?? Date(timeIntervalSince1970: 0)
         
@@ -82,7 +92,7 @@ final class ModelData: ObservableObject {
         }
         
         //get upper boundary
-        let last = rows[rows.count-2]
+        let last = rows[rows.count-2]  //upper boundary is the last data point
         columns = last.components(separatedBy: ",")
         let upperBound = getDate(columns[0]) ?? Date()
         
@@ -90,10 +100,10 @@ final class ModelData: ObservableObject {
         self.ready = true
     }
     
-    public func getDataForDate(){
+    public func getDataForDate(){ //collect the data for a chosen date
         self.data = [DataPoint]()
         
-        if(targetDate == nil || fh == nil){
+        if(targetDate == nil || fh == nil){ //if targetDate or file is nil, return
             return
         }
         
@@ -109,13 +119,14 @@ final class ModelData: ObservableObject {
                 
         //split that string into array of "rows" of data. Each row is a string.
         var rows = stringData.components(separatedBy: "\n")
-        
         //remove header row
         rows.removeFirst()
         
+        //get a "limit" at which point we should stop iterating through file
         let limiterDate = Calendar.current.date(byAdding: .day, value: -1, to: targetDate!)
         
-        //now loop around each row (from end to beginning), and append data based on whether it's on the target date
+        //now loop around each row (from end of file to beginning for speed reasons),
+        //append data based on whether it's contained in the target day
         for row in rows.reversed() {
             let columns = row.components(separatedBy: ",")
             //check that there are enough columns
@@ -137,15 +148,15 @@ final class ModelData: ObservableObject {
     }
     
     public func setSheet(_ id: Int){
-        self.sheetId = id
+        self.sheetId = id  //set the id of the sheet user is trying to look at
     }
     
     public func toggleSheet(){
-        self.showSheet = !self.showSheet
+        self.showSheet = !self.showSheet  //toggle whether or not sheet is visible
     }
 }
 
-func getDate(_ dateString: String) -> Date? {
+func getDate(_ dateString: String) -> Date? {  //convert string to Date data type
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
     dateFormatter.timeZone = TimeZone.current

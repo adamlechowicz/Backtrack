@@ -1,14 +1,10 @@
-//
-//  SheetView.swift
-//  Backtrack
-//
-//  Created by Adam Lechowicz on 8/28/21.
-//  Copyright © 2021 Apple. All rights reserved.
-//
+/*
+See LICENSE for this file's licensing information.
+*/
 
 import SwiftUI
 
-struct overlayRect: View{
+struct overlayRect: View{ //"material" for informational sheets
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
     
@@ -22,34 +18,7 @@ struct overlayRect: View{
     }
 }
 
-struct topAnimation: UIViewRepresentable {
-
-    var vWidth : CGFloat
-    var vHeight : CGFloat
-    var animatedImage : UIImage
-    
-    func makeUIView(context: Self.Context) -> UIView {
-        let someView = UIView(frame: CGRect(x: 0, y: 0
-        , width: UIScreen.main.bounds.size.width, height: vHeight))
-        
-        let rect = CGRect(x: 0, y: 0, width: vWidth, height: vHeight)
-        let someImage = UIImageView(frame: rect)
-        someImage.clipsToBounds = true
-        someImage.layer.cornerRadius = 20
-        someImage.autoresizesSubviews = true
-        someImage.contentMode = UIView.ContentMode.scaleAspectFill
-
-        someImage.image = animatedImage
-
-        someView.addSubview(someImage)
-
-        return someView
-      }
-
-    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<topAnimation>) {}
-}
-
-struct sheetView: View{
+struct sheetView: View{ //standard sheet view for informational sheets
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
     var sheet: Sheet
@@ -58,6 +27,7 @@ struct sheetView: View{
     let animatedImage: UIImage
     
     init(_ sheet: Sheet){
+        //get the names of frames for the animated image and initialize it
         for name in sheet.imageNames{
             images.append(UIImage(named: name)!)
         }
@@ -73,19 +43,24 @@ struct sheetView: View{
     
     var body: some View{
         VStack{
-            Text(sheet.title).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).bold().padding(.top, screenHeight > 600 ? 18.0 : 7.0).padding(.horizontal)
+            Text(sheet.title)
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .bold()
+                .padding(.top, screenHeight > 600 ? 18.0 : 7.0).padding(.horizontal)
             ScrollView{
-                topAnimation(vWidth: screenWidth-40.0, vHeight: (screenWidth-40.0)/3, animatedImage: self.animatedImage).padding(.leading, 20.0).frame(width: screenWidth, height: (screenWidth)/3)
-                Text(sheet.body).padding(.horizontal, 25.0)
+                topAnimation(vWidth: screenWidth-40.0, vHeight: (screenWidth-40.0)/3, animatedImage: self.animatedImage)
+                    .padding(.leading, 20.0)
+                    .frame(width: screenWidth, height: (screenWidth)/3)
+                Text(sheet.body)
+                    .padding(.horizontal, 25.0)
             }
         }
     }
 }
 
-struct locationSetupView: View{
+struct locationSetupView: View{ //specific sheet view for location permission setup sheet
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
-    
     var sheet: Sheet
     
     init(_ sheet: Sheet){
@@ -94,12 +69,18 @@ struct locationSetupView: View{
     
     var body: some View{
         VStack{
-            Text(sheet.title).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).bold().padding(.top, screenHeight > 600 ? 18.0 : 7.0).padding(.horizontal)
+            Text(sheet.title)
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .bold()
+                .padding(.top, screenHeight > 600 ? 18.0 : 7.0).padding(.horizontal)
             ScrollView{
-                topAnimation(vWidth: screenWidth-40.0, vHeight: (screenWidth-40.0)/3, animatedImage: UIImage(named: "arrowFrame1")!).padding(.leading, 20.0).frame(width: screenWidth, height: (screenWidth)/3)
+                topAnimation(vWidth: screenWidth-40.0, vHeight: (screenWidth-40.0)/3, animatedImage: UIImage(named: "arrowFrame1")!)
+                    .padding(.leading, 20.0)
+                    .frame(width: screenWidth, height: (screenWidth)/3)
                 VStack{
                     Text("First, let’s get your permissions set up.")
                     Divider()
+                    //open Settings app to set location permissions
                     Button (action: {openURL(UIApplication.openSettingsURLString)}) {
                         VStack{
                             HStack{
@@ -128,6 +109,7 @@ struct locationSetupView: View{
                         .foregroundColor(.blue)
                     }
                     Divider()
+                    //set location permissions (visual example)
                     VStack{
                         HStack{
                             Image(systemName: "2.circle.fill")
@@ -157,9 +139,37 @@ struct locationSetupView: View{
                         }.padding(.bottom, 1.0)
                     }
                     Divider()
-                    Text(sheet.body).padding(.bottom)
+                    Text(sheet.body)
+                        .padding(.bottom)
                 }.padding(.horizontal, screenHeight > 600 ? 25.0 : 15.0)
             }
         }
     }
+}
+
+struct topAnimation: UIViewRepresentable { //wrapper class to show a GIF-style animation
+
+    var vWidth : CGFloat
+    var vHeight : CGFloat
+    var animatedImage : UIImage
+    
+    func makeUIView(context: Self.Context) -> UIView {
+        let someView = UIView(frame: CGRect(x: 0, y: 0
+        , width: UIScreen.main.bounds.size.width, height: vHeight))
+        
+        let rect = CGRect(x: 0, y: 0, width: vWidth, height: vHeight)
+        let someImage = UIImageView(frame: rect)
+        someImage.clipsToBounds = true
+        someImage.layer.cornerRadius = 20
+        someImage.autoresizesSubviews = true
+        someImage.contentMode = UIView.ContentMode.scaleAspectFill
+
+        someImage.image = animatedImage
+
+        someView.addSubview(someImage)
+
+        return someView
+      }
+
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<topAnimation>) {}
 }

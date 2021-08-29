@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for licensing information.
+See LICENSE for licensing information.
 
 Abstract:
 The top-level definition of Backtrack.

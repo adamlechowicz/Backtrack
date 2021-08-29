@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6617F1CE26B3A86A009121A5 /* MKiCloudSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617F1CD26B3A86A009121A5 /* MKiCloudSync.m */; };
 		6625DE4526916D670036A025 /* ItemButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625DE4426916D670036A025 /* ItemButtonStyle.swift */; };
 		6692EC772692942700E6053B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6692EC762692942700E6053B /* Delegate.swift */; };
 		66A75F18268FE02300F5A2CC /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A75F17268FE02300F5A2CC /* LocationHelper.swift */; };
@@ -19,30 +18,23 @@
 		66B9321F269E8F4600BE1B82 /* Green@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B9321C269E8F4600BE1B82 /* Green@1x.png */; };
 		66B93220269E8F4600BE1B82 /* Green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B9321D269E8F4600BE1B82 /* Green@2x.png */; };
 		66B93221269E8F4600BE1B82 /* Green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B9321E269E8F4600BE1B82 /* Green@3x.png */; };
-		66B93223269E8FD000BE1B82 /* IconNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B93222269E8FD000BE1B82 /* IconNames.swift */; };
 		66C7CC6126DAB468005DA29C /* AcknowledgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C7CC6026DAB468005DA29C /* AcknowledgeView.swift */; };
 		66C7CC6326DAB4C8005DA29C /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C7CC6226DAB4C8005DA29C /* SheetView.swift */; };
 		66D28F7E26D34F4E00441275 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D28F7C26D34F4E00441275 /* DataView.swift */; };
 		66D28F7F26D34F4E00441275 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D28F7D26D34F4E00441275 /* ConfigView.swift */; };
 		66D28F8126D722D400441275 /* Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D28F8026D722D400441275 /* Sheet.swift */; };
 		66D28F8326D7233C00441275 /* SheetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D28F8226D7233C00441275 /* SheetData.swift */; };
-		66D28F8626D728C300441275 /* example.heic in Resources */ = {isa = PBXBuildFile; fileRef = 66D28F8526D728C300441275 /* example.heic */; };
 		66E1BB5C2675CBA5008D88C8 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1BB5B2675CBA5008D88C8 /* AppView.swift */; };
+		66E2631026DAE5A900D5069C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 66E2630F26DAE5A900D5069C /* LICENSE */; };
 		C20D77EE24B665D7002E7AEA /* BacktrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77ED24B665D7002E7AEA /* BacktrackApp.swift */; };
 		C20D77F224B665D8002E7AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C20D77F124B665D8002E7AEA /* Assets.xcassets */; };
 		C20D77F524B665D8002E7AEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C20D77F424B665D8002E7AEA /* Preview Assets.xcassets */; };
-		C20D77FD24B668F4002E7AEA /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77FC24B668F4002E7AEA /* CircleImage.swift */; };
 		C20D77FF24B67FB3002E7AEA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77FE24B67FB3002E7AEA /* MapView.swift */; };
 		C20D780524B684EC002E7AEA /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D780424B684EC002E7AEA /* ModelData.swift */; };
 		C20D780724B685AC002E7AEA /* sheetData.json in Resources */ = {isa = PBXBuildFile; fileRef = C20D780624B685AC002E7AEA /* sheetData.json */; };
-		C2C583BD24DB807000DD0019 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C583BC24DB807000DD0019 /* ContentView.swift */; };
-		C2C583C224DB80DA00DD0019 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C583C124DB80DA00DD0019 /* FavoriteButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6617F1CB26B3A868009121A5 /* Backtrack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backtrack-Bridging-Header.h"; sourceTree = "<group>"; };
-		6617F1CC26B3A86A009121A5 /* MKiCloudSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKiCloudSync.h; sourceTree = "<group>"; };
-		6617F1CD26B3A86A009121A5 /* MKiCloudSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKiCloudSync.m; sourceTree = "<group>"; };
 		6625DE4426916D670036A025 /* ItemButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemButtonStyle.swift; sourceTree = "<group>"; };
 		6692EC762692942700E6053B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		66A75F17268FE02300F5A2CC /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
@@ -55,28 +47,23 @@
 		66B9321C269E8F4600BE1B82 /* Green@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@1x.png"; sourceTree = "<group>"; };
 		66B9321D269E8F4600BE1B82 /* Green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@2x.png"; sourceTree = "<group>"; };
 		66B9321E269E8F4600BE1B82 /* Green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green@3x.png"; sourceTree = "<group>"; };
-		66B93222269E8FD000BE1B82 /* IconNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNames.swift; sourceTree = "<group>"; };
 		66C7CC6026DAB468005DA29C /* AcknowledgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgeView.swift; sourceTree = "<group>"; };
 		66C7CC6226DAB4C8005DA29C /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		66D28F7C26D34F4E00441275 /* DataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		66D28F7D26D34F4E00441275 /* ConfigView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		66D28F8026D722D400441275 /* Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheet.swift; sourceTree = "<group>"; };
 		66D28F8226D7233C00441275 /* SheetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetData.swift; sourceTree = "<group>"; };
-		66D28F8526D728C300441275 /* example.heic */ = {isa = PBXFileReference; lastKnownFileType = file; path = example.heic; sourceTree = "<group>"; };
 		66E1BB5B2675CBA5008D88C8 /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
-		6AF17FBC250C47AD4B5BC2FB /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		66E2630F26DAE5A900D5069C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = Backtrack/LICENSE; sourceTree = SOURCE_ROOT; };
 		C20D77EA24B665D7002E7AEA /* Backtrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backtrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20D77ED24B665D7002E7AEA /* BacktrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacktrackApp.swift; sourceTree = "<group>"; };
 		C20D77F124B665D8002E7AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C20D77F424B665D8002E7AEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C20D77F624B665D8002E7AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C20D77FC24B668F4002E7AEA /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		C20D77FE24B67FB3002E7AEA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		C20D780424B684EC002E7AEA /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		C20D780624B685AC002E7AEA /* sheetData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sheetData.json; sourceTree = "<group>"; };
 		C2AC4E9B24DE2936005E019B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		C2C583BC24DB807000DD0019 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C2C583C124DB80DA00DD0019 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,14 +79,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00ABA66E85532B385D477CBF /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				6AF17FBC250C47AD4B5BC2FB /* SampleCode.xcconfig */,
-			);
-			name = Configuration;
-			sourceTree = "<group>";
-		};
 		66A75F1A268FE28300F5A2CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +107,6 @@
 				C2AC4E9B24DE2936005E019B /* README.md */,
 				C20D77EC24B665D7002E7AEA /* Backtrack */,
 				C20D77EB24B665D7002E7AEA /* Products */,
-				00ABA66E85532B385D477CBF /* Configuration */,
 				66A75F1A268FE28300F5A2CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -153,6 +131,7 @@
 				C20D77F124B665D8002E7AEA /* Assets.xcassets */,
 				C20D77F624B665D8002E7AEA /* Info.plist */,
 				C20D77F324B665D8002E7AEA /* Preview Content */,
+				66E2630F26DAE5A900D5069C /* LICENSE */,
 			);
 			path = Backtrack;
 			sourceTree = "<group>";
@@ -168,13 +147,9 @@
 		C20D780824B685C4002E7AEA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6617F1CC26B3A86A009121A5 /* MKiCloudSync.h */,
-				6617F1CD26B3A86A009121A5 /* MKiCloudSync.m */,
 				C20D780424B684EC002E7AEA /* ModelData.swift */,
 				66A75F17268FE02300F5A2CC /* LocationHelper.swift */,
 				6692EC762692942700E6053B /* Delegate.swift */,
-				66B93222269E8FD000BE1B82 /* IconNames.swift */,
-				6617F1CB26B3A868009121A5 /* Backtrack-Bridging-Header.h */,
 				66D28F8026D722D400441275 /* Sheet.swift */,
 				66D28F8226D7233C00441275 /* SheetData.swift */,
 			);
@@ -184,7 +159,6 @@
 		C20D780924B685CB002E7AEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				66D28F8526D728C300441275 /* example.heic */,
 				C20D780624B685AC002E7AEA /* sheetData.json */,
 			);
 			path = Resources;
@@ -193,9 +167,7 @@
 		C2C583BE24DB80C300DD0019 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C20D77FC24B668F4002E7AEA /* CircleImage.swift */,
 				C20D77FE24B67FB3002E7AEA /* MapView.swift */,
-				C2C583C124DB80DA00DD0019 /* FavoriteButton.swift */,
 				6625DE4426916D670036A025 /* ItemButtonStyle.swift */,
 			);
 			path = Helpers;
@@ -209,7 +181,6 @@
 				66E1BB5B2675CBA5008D88C8 /* AppView.swift */,
 				66C7CC6226DAB4C8005DA29C /* SheetView.swift */,
 				66C7CC6026DAB468005DA29C /* AcknowledgeView.swift */,
-				C2C583BC24DB807000DD0019 /* ContentView.swift */,
 				C2C583BE24DB80C300DD0019 /* Helpers */,
 			);
 			path = Views;
@@ -275,10 +246,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				66B9321F269E8F4600BE1B82 /* Green@1x.png in Resources */,
-				66D28F8626D728C300441275 /* example.heic in Resources */,
 				66B93218269E8F0B00BE1B82 /* Blue@2x.png in Resources */,
 				66B93221269E8F4600BE1B82 /* Green@3x.png in Resources */,
 				66B93220269E8F4600BE1B82 /* Green@2x.png in Resources */,
+				66E2631026DAE5A900D5069C /* LICENSE in Resources */,
 				66B93219269E8F0B00BE1B82 /* Blue@1x.png in Resources */,
 				C20D77F524B665D8002E7AEA /* Preview Assets.xcassets in Resources */,
 				66B9321B269E8F1700BE1B82 /* Blue@3x.png in Resources */,
@@ -301,17 +272,12 @@
 				C20D77FF24B67FB3002E7AEA /* MapView.swift in Sources */,
 				66C7CC6126DAB468005DA29C /* AcknowledgeView.swift in Sources */,
 				6692EC772692942700E6053B /* Delegate.swift in Sources */,
-				66B93223269E8FD000BE1B82 /* IconNames.swift in Sources */,
 				66D28F7F26D34F4E00441275 /* ConfigView.swift in Sources */,
 				66E1BB5C2675CBA5008D88C8 /* AppView.swift in Sources */,
 				66C7CC6326DAB4C8005DA29C /* SheetView.swift in Sources */,
-				6617F1CE26B3A86A009121A5 /* MKiCloudSync.m in Sources */,
 				C20D77EE24B665D7002E7AEA /* BacktrackApp.swift in Sources */,
-				C2C583BD24DB807000DD0019 /* ContentView.swift in Sources */,
 				66D28F7E26D34F4E00441275 /* DataView.swift in Sources */,
 				66D28F8326D7233C00441275 /* SheetData.swift in Sources */,
-				C20D77FD24B668F4002E7AEA /* CircleImage.swift in Sources */,
-				C2C583C224DB80DA00DD0019 /* FavoriteButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +286,6 @@
 /* Begin XCBuildConfiguration section */
 		C20D77F724B665D8002E7AEA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6AF17FBC250C47AD4B5BC2FB /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -382,7 +347,6 @@
 		};
 		C20D77F824B665D8002E7AEA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6AF17FBC250C47AD4B5BC2FB /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -438,14 +402,13 @@
 		};
 		C20D77FA24B665D8002E7AEA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6AF17FBC250C47AD4B5BC2FB /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Backtrack/Backtrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8.28.21;
+				CURRENT_PROJECT_VERSION = 8.29.21;
 				DEVELOPMENT_ASSET_PATHS = "\"Backtrack/Preview Content\"";
 				DEVELOPMENT_TEAM = FSMP3T4UP6;
 				ENABLE_PREVIEWS = YES;
@@ -455,27 +418,25 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamlechowicz.Backtrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Backtrack/Model/Backtrack-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		C20D77FB24B665D8002E7AEA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6AF17FBC250C47AD4B5BC2FB /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Backtrack/Backtrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8.28.21;
+				CURRENT_PROJECT_VERSION = 8.29.21;
 				DEVELOPMENT_ASSET_PATHS = "\"Backtrack/Preview Content\"";
 				DEVELOPMENT_TEAM = FSMP3T4UP6;
 				ENABLE_PREVIEWS = YES;
@@ -485,13 +446,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamlechowicz.Backtrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Backtrack/Model/Backtrack-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

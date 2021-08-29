@@ -1,12 +1,14 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See LICENSE for this files’s licensing information.
+ 
 Abstract:
-The model for an individual building.
+Data model for an informational sheet.
 */
 
 import SwiftUI
 import Foundation
 
+//Definition/structure of an informational sheet
 struct Sheet: Hashable, Codable, Identifiable {
     var id: Int
     var title: String

@@ -1,9 +1,9 @@
-//
-//  ItemButtonStyle.swift
-//  Backtrack
-//
-//  Created by Adam Lechowicz on 6/11/20.
-//
+/*
+See LICENSE for this file's licensing information.
+
+Abstract:
+Just some SwiftUI button styles for easy usage.
+*/
 
 import Foundation
 import SwiftUI

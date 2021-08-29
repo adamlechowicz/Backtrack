@@ -1,17 +1,15 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-A view that presents a map of a landmark.
+See LICENSE for this file's licensing information.
 */
 
 import SwiftUI
 import MapKit
 
-struct MapView: UIViewRepresentable {
+struct MapView: UIViewRepresentable {  //map view for visualizing data
     var points : [DataPoint]
     let dateFormatter = DateFormatter()
     
+    //calculate the center of all data points
     var centerOfPoints : (center: CLLocationCoordinate2D, span: MKCoordinateSpan) {
         var minLat = 91.0
         var maxLat = -91.0
@@ -35,7 +33,7 @@ struct MapView: UIViewRepresentable {
     }
 
     func makeUIView(context: Context) -> MKMapView {
-        MKMapView(frame: .zero)
+        MKMapView(frame: .zero) //make UIKit map view
     }
 
     func updateUIView(_ uiView: MKMapView, context: Context) {
@@ -44,12 +42,15 @@ struct MapView: UIViewRepresentable {
         let center = centerOfPoints
         dateFormatter.dateFormat = "M/dd h:mm a"
         
+        //configure map view
         uiView.mapType = MKMapType.satellite // (satellite)
         let region = MKCoordinateRegion(center: center.center, span: center.span)
         uiView.setRegion(region, animated: true)
         uiView.showsUserLocation = true
+        //add margin at the top to compensate for date selection UI
         uiView.layoutMargins = UIEdgeInsets(top: 150, left: 10, bottom: 10, right: 10)
         
+        //for each data point, add an annotation on the map with the associated info
         for point in points{
             let annotation = MKPointAnnotation()
             annotation.coordinate = point.locationCoordinate

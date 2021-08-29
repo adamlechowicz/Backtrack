@@ -1,19 +1,16 @@
-//
-//  AppView.swift
-//  Backtrack
-//
-//  Created by Adam Lechowicz on 4/9/20.
-//
+/*
+See LICENSE for this file's licensing information.
+*/
 
 import SwiftUI
 
 struct AppView: View {
-    @State private var selection = 1
+    @State private var selection = 1  //UI State var for tabbed view, default tab "Config"
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var locHelper: LocationHelper
     
     var body: some View {
-        TabView(selection: $selection) {
+        TabView(selection: $selection) { //root tab view
             ConfigView(toggle_iCloudOn: self.locHelper.iCloudActive, filter_selection: self.locHelper.distanceFilterVal, toggle_BacktrackOn: self.locHelper.active)
                 .tabItem {
                     Image(systemName: "gearshape.2.fill")
@@ -28,41 +25,43 @@ struct AppView: View {
                 .tag(2)
         }.onAppear(){
             if(self.locHelper.authorisationStatus != .authorizedAlways){
-                self.locHelper.requestAuth(always: true)
+                self.locHelper.requestAuth() //initial request for location access
             }
-            do{
-                let dir = try FileManager.default.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
-                let fh = dir.appendingPathComponent("test.txt")
-                NSLog(fh.absoluteString)
-                do {
-                    try "Hello World".write(to: fh, atomically: true, encoding: .utf8)
-                } catch {
-                    NSLog("Error")
-                }
-            } catch let error as NSError {
-                NSLog("Problem opening the appropriate file: \(error)")
-            }
-        }.overlay(
+        }.overlay( //overlay enables us to show informational "Sheets"
             ZStack{
                 if modelData.showSheet{
                     ZStack{
-                        overlayRect()
+                        overlayRect() //show the "material" for the sheet
                         VStack{
-                            HStack{
+                            HStack{  //show close button for sheet
                                 Spacer()
+                                
+                                //if this sheet is one of the first three, it's part of initial
+                                //setup and we shouldn't show a close button
                                 if(modelData.sheetId > 2){
                                     Button(action: { modelData.toggleSheet() }, label: {
                                         ZStack{
-                                            Circle().frame(width: 38, height: 38).foregroundColor(.gray)
-                                            Image(systemName: "xmark").foregroundColor(.white).font(.title2)
+                                            Circle()
+                                                .frame(width: 38, height: 38)
+                                                .foregroundColor(.gray)
+                                            Image(systemName: "xmark")
+                                                .foregroundColor(.white)
+                                                .font(.title2)
                                         }
                                     }).padding(.trailing, 25.0)
                                 }
                             }
+                            
+                            //if this sheet is the acknowledgements sheet, show that instead of
+                            //the standard sheet view
                             if(modelData.sheetId == 5){
                                 acknowledgeView()
-                            } else if (modelData.sheetId == 1) {
-                                locationSetupView(sheetData[modelData.sheetId]).transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                            }
+                            //if this is the second sheet, it's the location setup sheet, so
+                            //show the location setup view
+                            else if (modelData.sheetId == 1) {
+                                locationSetupView(sheetData[modelData.sheetId])
+                                    .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
                                 Button(action:{
                                     modelData.setSheet(sheetData[modelData.sheetId].nextId)
                                     modelData.toggleSheet()
@@ -79,15 +78,21 @@ struct AppView: View {
                                         .cornerRadius(17.0)
                                 }.buttonStyle(SimpleButtonStyle())
                                 .padding(.bottom, 70.0)
-                            } else {
-                                sheetView(sheetData[modelData.sheetId]).transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
-                                if(sheetData[modelData.sheetId].button != ""){
+                            }
+                            //Otherwise, the standard sheet view is all we need
+                            else {
+                                sheetView(sheetData[modelData.sheetId])
+                                    .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                                //show a bottom button for initial setup sheets
+                                if(modelData.sheetId < 3){
                                     Button(action:{
                                         if (modelData.sheetId < 2){
+                                            //if it's the first two sheets in the setup, just
+                                            //go to the next sheet in the sequence
                                             modelData.setSheet(sheetData[modelData.sheetId].nextId)
-                                            modelData.toggleSheet()
-                                            modelData.toggleSheet()
                                         } else {
+                                            //if this is the last sheet in the sequence,
+                                            //just close the sheet with this bottom button
                                             modelData.toggleSheet()
                                         }
                                     }){
@@ -116,6 +121,7 @@ struct AppView: View {
             }
         )
         .accentColor(self.locHelper.active ? Color(UIColor(named: "EmeraldGreen") ?? .green) : Color(UIColor(named: "OceanBlue") ?? .blue))
+        //set accent color for whole app based on status of location helper
     }
 }
 

@@ -1,14 +1,10 @@
-//
-//  AcknowledgeView.swift
-//  Backtrack
-//
-//  Created by Adam Lechowicz on 8/28/21.
-//  Copyright © 2021 Apple. All rights reserved.
-//
+/*
+See LICENSE for this file's licensing information.
+*/
 
 import SwiftUI
 
-struct acknowledgeView: View{
+struct acknowledgeView: View{  //sheet view to view version numbers, licensing, etc.
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
     
@@ -39,7 +35,10 @@ struct acknowledgeView: View{
             }.padding(.bottom, screenHeight > 600 ? 10.0 : 0.0).padding(.top, screenHeight > 600 ? 0.0 : -20.0)
             VStack{
                 Divider()
-                Button (action: {openURL("https://drive.google.com/file/d/1NfjuFBOOQwoXSBjXEOhr0fHBuzaq-RAp/view?usp=sharing")}) {
+                Button (action: {
+                    //open privacy policy in default browser
+                    openURL("https://github.com/adamlechowicz/Backtrack/blob/main/Backtrack%20Privacy%20Policy.pdf")
+                }) {
                     VStack{
                         HStack{
                             Image(systemName: "hand.raised.fill")
@@ -61,13 +60,15 @@ struct acknowledgeView: View{
                     .padding(.trailing, 9.0)
                     .padding(.leading, 3.0)
                     .padding(.vertical, 5.0)
-                    //.background(Color.gray)
                     .foregroundColor(.blue)
                 }
             }
             VStack{
                 Divider()
-                Button (action: {openURL("https://github.com/adamlechowicz/Backtrack")}) {
+                Button (action: {
+                    //open source code (github repo) in default browser
+                    openURL("https://github.com/adamlechowicz/Backtrack")
+                }) {
                     VStack{
                         HStack{
                             Image(systemName: "chevron.left.slash.chevron.right")
@@ -88,13 +89,15 @@ struct acknowledgeView: View{
                     .padding(.trailing, 9.0)
                     .padding(.leading, 3.0)
                     .padding(.vertical, 5.0)
-                    //.background(Color.gray)
                     .foregroundColor(.blue)
                 }
             }
             VStack{
                 Divider()
-                Button (action: {openURL("https://github.com/adamlechowicz/Backtrack/blob/main/LICENSE")}) {
+                Button (action: {
+                    //open mit license in default browser
+                    openURL("https://github.com/adamlechowicz/Backtrack/blob/main/LICENSE")
+                }) {
                     VStack{
                         HStack{
                             Image(systemName: "doc.text.fill")
@@ -115,12 +118,11 @@ struct acknowledgeView: View{
                     .padding(.trailing, 9.0)
                     .padding(.leading, 3.0)
                     .padding(.vertical, 5.0)
-                    //.background(Color.gray)
                     .foregroundColor(.blue)
                 }
             }
             Spacer()
-            VStack{
+            VStack{ //show contact and feedback information
                 HStack{
                     Text("Contact/Feedback")
                         .font(.headline)
@@ -131,7 +133,7 @@ struct acknowledgeView: View{
                     Spacer()
                     
                     Button (action: {
-                            openURL("mailto:alechowicz@umass.edu")
+                        openURL("mailto:alechowicz@umass.edu")
                     }){
                         HStack{
                             Image(systemName: "envelope.fill")
@@ -150,7 +152,7 @@ struct acknowledgeView: View{
                     Spacer()
                     
                     Button (action: {
-                            openURL("https://github.com/adamlechowicz")
+                        openURL("https://github.com/adamlechowicz")
                     }){
                         HStack{
                             Image("github")
@@ -168,7 +170,7 @@ struct acknowledgeView: View{
                     Spacer()
                     
                     Button (action: {
-                            openURL("https://www.linkedin.com/in/adamlechowicz/")
+                        openURL("https://www.linkedin.com/in/adamlechowicz/")
                     }){
                         HStack{
                             Image("linkedin")

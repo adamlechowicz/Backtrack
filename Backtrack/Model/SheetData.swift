@@ -1,7 +1,8 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See LICENSE for this file’s licensing information.
+ 
 Abstract:
-Helpers for loading images and data.
+Helpers for loading images and data from JSON.
 */
 
 import UIKit
@@ -9,62 +10,31 @@ import SwiftUI
 import CoreLocation
 import AVFoundation
 
+//load data for informational sheets from JSON file in package
 var sheetData: [Sheet] = load("sheetData.json")
 
+//define function to load from JSON
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
     
+    //pick the file from the main bundle
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
         else {
             fatalError("Couldn't find \(filename) in main bundle.")
     }
     
+    //get data from file
     do {
         data = try Data(contentsOf: file)
     } catch {
         fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
     }
     
+    //decode data from file
     do {
         let decoder = JSONDecoder()
         return try decoder.decode(T.self, from: data)
     } catch {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
-    }
-}
-
-final class ImageStore {
-    typealias _ImageDictionary = [String: CGImage]
-    fileprivate var images: _ImageDictionary = [:]
-
-    fileprivate static var scale = 2
-    
-    static var shared = ImageStore()
-    
-    func image(name: String) -> Image {
-        let index = _guaranteeImage(name: name)
-        
-        return Image(images.values[index], scale: CGFloat(ImageStore.scale), label: Text(name))
-    }
-
-    static func loadImage(name: String) -> CGImage? {
-        if (name.count < 2){
-            return nil
-        }
-        guard
-            let url = Bundle.main.url(forResource: name, withExtension: "heic"),
-            let imageSource = CGImageSourceCreateWithURL(url as NSURL, nil),
-            let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil)
-        else {
-            fatalError("Couldn't load image \(name).heic from main bundle.")
-        }
-        return image
-    }
-    
-    fileprivate func _guaranteeImage(name: String) -> _ImageDictionary.Index {
-        if let index = images.index(forKey: name) { return index }
-        
-        images[name] = ImageStore.loadImage(name: name)
-        return images.index(forKey: name)!
     }
 }
