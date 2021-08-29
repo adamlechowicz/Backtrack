@@ -1,4 +1,4 @@
-# Backtrack ###### iOS Location History App
+# Backtrack, an iOS location history app
 
 Backtrack is a privacy-centric, open-source location logging solution that provides you with a history of location data for your device.  
 Backtrack provides an alternative to “Location History” solutions offered by many web mapping platforms, without selling your data or even sharing it with any third party.  
