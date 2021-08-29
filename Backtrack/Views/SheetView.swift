@@ -142,6 +142,7 @@ struct locationSetupView: View{ //specific sheet view for location permission se
                     Divider()
                     Text(sheet.body)
                         .padding(.bottom)
+                        .fixedSize(horizontal: false, vertical: true)
                 }.padding(.horizontal, screenHeight > 600 ? 25.0 : 15.0)
             }
         }

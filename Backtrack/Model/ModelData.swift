@@ -56,6 +56,7 @@ final class ModelData: ObservableObject {
             self.sheetId = 0
             self.showSheet = true
         }
+        setDate(dateBoundaries.upperBound)
     }
     
     public func setDate(_ date: Date){
