@@ -12,7 +12,7 @@ struct DataView: View {
     
     var body: some View {
         if(modelData.ready){
-            ZStack{ //ZStack means the first item is at the bottom of the stack
+            ZStack{  //ZStack means the first item is at the bottom of the stack
                 VStack{
                     if(modelData.data.count > 0 && modelData.dataReady){
                         //if everything checks out, show the map

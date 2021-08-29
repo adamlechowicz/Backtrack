@@ -51,8 +51,14 @@ struct sheetView: View{ //standard sheet view for informational sheets
                 topAnimation(vWidth: screenWidth-40.0, vHeight: (screenWidth-40.0)/3, animatedImage: self.animatedImage)
                     .padding(.leading, 20.0)
                     .frame(width: screenWidth, height: (screenWidth)/3)
-                Text(sheet.body)
-                    .padding(.horizontal, 25.0)
+                VStack{
+                    Spacer().frame(height: 0)
+                    Text(sheet.body)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(28.0)
+                        .lineLimit(nil)
+                    Spacer().frame(height: 0)
+                }
             }
         }
     }
@@ -140,9 +146,14 @@ struct locationSetupView: View{ //specific sheet view for location permission se
                         }.padding(.bottom, 1.0)
                     }
                     Divider()
-                    Text(sheet.body)
-                        .padding(.bottom)
-                        .fixedSize(horizontal: false, vertical: true)
+                    VStack{
+                        Spacer().frame(height: 0)
+                        Text(sheet.body)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding()
+                            .lineLimit(nil)
+                        Spacer().frame(height: 0)
+                    }
                 }.padding(.horizontal, screenHeight > 600 ? 25.0 : 15.0)
             }
         }
