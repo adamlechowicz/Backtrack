@@ -194,6 +194,8 @@ extension LocationHelper: CLLocationManagerDelegate {
         
         //locValue is the updated location (in longitude and latitude)
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        //fetch this location point's accuracy
+        guard let accuracy = manager.location?.horizontalAccuracy else { return }
         
         //Log to the console for debug purposes (disabled to reduce overhead)
         //NSLog("locations = \(locValue.latitude) \(locValue.longitude)")
@@ -201,6 +203,18 @@ extension LocationHelper: CLLocationManagerDelegate {
         //check if this location is the same as the last one we logged
         //(iOS will sometimes call this function twice in quick succession, so we filter out duplicates)
         if (locValue.latitude == lastLocation.latitude && locValue.longitude == lastLocation.latitude){
+            return
+        }
+        
+        //check the reported accuracy of this location
+        //(why?) if we request high accuracy from the location manager, iOS will stop sending us
+        //       location updates in the background for battery reasons.  We don't want that, so
+        //       we request an average location accuracy, and then ONLY LOG the values we get that
+        //       meet our criteria for accuracy.  (300m uncertainty radius is a good medium)
+        //       iOS will always send us the best accuracy location that it has, meaning that
+        //       when other apps request a high accuracy location, Backtrack will get it too.
+        //       (This is the best approach for battery life)
+        if (accuracy > CLLocationAccuracy(300)){
             return
         }
         

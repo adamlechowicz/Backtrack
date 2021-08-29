@@ -58,7 +58,7 @@ struct sheetView: View{ //standard sheet view for informational sheets
                         .padding(28.0)
                         .lineLimit(nil)
                     Spacer().frame(height: 0)
-                }
+                }.padding(.bottom, 70.0)
             }
         }
     }
@@ -153,7 +153,7 @@ struct locationSetupView: View{ //specific sheet view for location permission se
                             .padding()
                             .lineLimit(nil)
                         Spacer().frame(height: 0)
-                    }
+                    }.padding(.bottom, 70.0)
                 }.padding(.horizontal, screenHeight > 600 ? 25.0 : 15.0)
             }
         }

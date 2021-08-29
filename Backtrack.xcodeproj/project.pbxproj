@@ -408,7 +408,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Backtrack/Backtrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8.29.21;
+				CURRENT_PROJECT_VERSION = 8.30.21;
 				DEVELOPMENT_ASSET_PATHS = "\"Backtrack/Preview Content\"";
 				DEVELOPMENT_TEAM = FSMP3T4UP6;
 				ENABLE_PREVIEWS = YES;
@@ -418,7 +418,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamlechowicz.Backtrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -436,7 +436,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Backtrack/Backtrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8.29.21;
+				CURRENT_PROJECT_VERSION = 8.30.21;
 				DEVELOPMENT_ASSET_PATHS = "\"Backtrack/Preview Content\"";
 				DEVELOPMENT_TEAM = FSMP3T4UP6;
 				ENABLE_PREVIEWS = YES;
@@ -446,7 +446,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamlechowicz.Backtrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
