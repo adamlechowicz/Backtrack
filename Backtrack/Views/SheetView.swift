@@ -106,7 +106,7 @@ struct locationSetupView: View{ //specific sheet view for location permission se
                             }.padding(.bottom, 1.0)
                         }.padding(.vertical, 5.0)
                         //.background(Color.gray)
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color(UIColor(named: "OceanBlue") ?? .blue))
                     }
                     Divider()
                     //set location permissions (visual example)
@@ -126,7 +126,8 @@ struct locationSetupView: View{ //specific sheet view for location permission se
                                             .resizable()
                                             .frame(width: 15, height: 15)
                                             .foregroundColor(.white)
-                                    }.frame(width: 28, height: 28).background(Color.blue).cornerRadius(8.0).padding(.leading, 2.0)
+                                    }.frame(width: 28, height: 28)
+                                    .background(Color.blue).cornerRadius(8.0).padding(.leading, 2.0)
                                 }
                                 Text("Location").padding(.vertical, 8.0).padding(.leading, 2.0)
                                 Spacer()

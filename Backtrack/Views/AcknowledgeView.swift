@@ -60,7 +60,7 @@ struct acknowledgeView: View{  //sheet view to view version numbers, licensing, 
                     .padding(.trailing, 9.0)
                     .padding(.leading, 3.0)
                     .padding(.vertical, 5.0)
-                    .foregroundColor(.blue)
+                    .foregroundColor(Color(UIColor(named: "OceanBlue") ?? .blue))
                 }
             }
             VStack{
@@ -89,7 +89,7 @@ struct acknowledgeView: View{  //sheet view to view version numbers, licensing, 
                     .padding(.trailing, 9.0)
                     .padding(.leading, 3.0)
                     .padding(.vertical, 5.0)
-                    .foregroundColor(.blue)
+                    .foregroundColor(Color(UIColor(named: "OceanBlue") ?? .blue))
                 }
             }
             VStack{
@@ -118,7 +118,7 @@ struct acknowledgeView: View{  //sheet view to view version numbers, licensing, 
                     .padding(.trailing, 9.0)
                     .padding(.leading, 3.0)
                     .padding(.vertical, 5.0)
-                    .foregroundColor(.blue)
+                    .foregroundColor(Color(UIColor(named: "OceanBlue") ?? .blue))
                 }
             }
             Spacer()
@@ -162,7 +162,7 @@ struct acknowledgeView: View{  //sheet view to view version numbers, licensing, 
                         }
                         .padding(.horizontal, 30.0)
                         .padding(.vertical, 5.0)
-                        .background(Color(UIColor(named: "ReverseShadow") ?? .black))
+                        .background(Color(UIColor(named: "WhiteBlack") ?? .black))
                         .cornerRadius(15.0)
                         .shadow(radius: 1.0, x: 1.0, y: 1.0)
                     }.buttonStyle(ItemButtonStyle())

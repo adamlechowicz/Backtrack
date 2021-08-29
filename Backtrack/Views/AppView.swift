@@ -9,6 +9,9 @@ struct AppView: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var locHelper: LocationHelper
     
+    let screenWidth = UIScreen.main.bounds.size.width
+    let screenHeight = UIScreen.main.bounds.size.height
+    
     var body: some View {
         TabView(selection: $selection) { //root tab view
             ConfigView(toggle_iCloudOn: self.locHelper.iCloudActive, filter_selection: self.locHelper.distanceFilterVal, toggle_BacktrackOn: self.locHelper.active)
@@ -77,7 +80,7 @@ struct AppView: View {
                                         .font(.headline)
                                         .cornerRadius(17.0)
                                 }.buttonStyle(SimpleButtonStyle())
-                                .padding(.bottom, 70.0)
+                                .padding(.bottom, screenHeight > 600 ? 100.0 : 70.0)
                             }
                             //Otherwise, the standard sheet view is all we need
                             else {
@@ -106,7 +109,7 @@ struct AppView: View {
                                             .font(.headline)
                                             .cornerRadius(17.0)
                                     }.buttonStyle(SimpleButtonStyle())
-                                    .padding(.bottom, 70.0)
+                                    .padding(.bottom, screenHeight > 600 ? 100.0 : 70.0)
                                 } else {
                                     EmptyView()
                                 }

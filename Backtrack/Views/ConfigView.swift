@@ -71,7 +71,7 @@ struct ConfigView: View {
                                 //set the location filter to value chosen
                         })
                 }.padding(.all)
-                .background(Color(UIColor.systemBackground))
+                .background(Color(UIColor(named: "Regular") ?? .gray))
                 .cornerRadius(17.0)
                 if(screenHeight > 600){  //if not on a 4-inch display, add some extra space
                     Divider().padding(.vertical, 10.0)
@@ -104,7 +104,7 @@ struct ConfigView: View {
                     }.disabled(!self.locHelper.iCloudAvail) //disable if not signed into iCloud
                 }.padding(.all)
                 .toggleStyle(SwitchToggleStyle(tint: (self.locHelper.active ? .green : .blue)))
-                .background(Color(UIColor.systemBackground))
+                .background(Color(UIColor(named: "Regular") ?? .gray))
                 .cornerRadius(17.0)
                 if(screenHeight > 600){  //if not on a 4-inch display, add some extra space
                     Divider().padding(.vertical, 10.0)
