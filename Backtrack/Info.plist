@@ -10,17 +10,6 @@
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>Backtrack</string>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>MKDirectionsRequest</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>com.apple.maps.directionsrequest</string>
-			</array>
-		</dict>
-	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIcons</key>
@@ -70,11 +59,6 @@
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
-	<key>MKDirectionsApplicationSupportedModes</key>
-	<array>
-		<string>MKDirectionsModeCar</string>
-		<string>MKDirectionsModePedestrian</string>
-	</array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Backtrack uses your location to log your adventures in the background.  Your location data is logged locally on your device, or, if you choose, directly to your private iCloud Drive.  For more information on the handling of your data, check out the source code for this app at github.com/adamlechowicz/Backtrack.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
