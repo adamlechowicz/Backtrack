@@ -7,6 +7,8 @@ Backtrack provides an alternative to “Location History” solutions offered by
 Your data is your property, and Backtrack respects this by saving your collected data directly to spaces that you have full control over.  
 Pausing and resuming your location history is just one tap away, and you can view all of your collected data right in the app.
 
+![Backtrack Hero Banner](https://github.com/adamlechowicz/adamlechowicz.github.io/blob/master/assets/img/projects/proj-5/backtrack.jpg?raw=true)
+
 ## Key Features
 * Deep iOS integration that passively collects location data from your device with minimal impact on battery life
   * App offers configurable parameters to fine tune how often the location engine collects data points
